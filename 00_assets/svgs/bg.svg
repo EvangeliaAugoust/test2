@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="backdrop" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1920 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#linear-gradient);
+      }
+
+      .cls-1, .cls-2, .cls-3 {
+        stroke-width: 0px;
+      }
+
+      .cls-2 {
+        fill: #bce2ed;
+      }
+
+      .cls-3 {
+        fill: #dcf8ff;
+      }
+    </style>
+    <linearGradient id="linear-gradient" x1="1981" y1="662.5" x2="4001" y2="662.5" gradientTransform="translate(3527) rotate(-180) scale(1 -1)" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#8cd1e5"/>
+      <stop offset="1" stop-color="#bce2ed"/>
+    </linearGradient>
+  </defs>
+  <rect class="cls-3" x="-1" y="-276" width="1921" height="1496"/>
+  <rect class="cls-2" x="33" y="442.71" width="1921" height="536.66" transform="translate(1987 1422.09) rotate(180)"/>
+  <path class="cls-1" d="M1546,985c-23.95-78.38-10.48-201.45-220.19-221.58-209.71-20.13-309.75-88.3-360.41-218.23-50.66-129.93-146.86-185.98-232.79-205.19H-474v645h2020Z"/>
+</svg>

@@ -1,0 +1,464 @@
+html{
+    scroll-behavior: smooth;
+}
+*{
+    font-family: 'Work Sans', sans-serif;
+    transition: .3s ease;
+}
+body{
+    overflow-x: hidden;
+    font-weight: 400;
+    margin: 0;
+
+    height: fit-content;
+    background-image: url(../00_assets/svgs/temp.svg);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+a, li{
+    all: unset;
+    cursor: pointer;
+}
+::selection {
+    color: white;
+    background: #C33948;
+}
+
+/*NAVBAR*/
+nav{
+    width: 100%;
+    height: 10vh;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background-color: #c33949fa;
+    color: white;
+}
+#me_index{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(9%) saturate(7498%) hue-rotate(180deg) brightness(104%) contrast(116%);
+}
+#me_index:hover, .web a:hover{
+    letter-spacing: 0.5px;
+}
+.web{
+    display: flex;
+    width: 500px;
+    justify-content: space-evenly;
+}
+.web a{
+    padding: 2%;
+    border-bottom: white solid 2px;
+    transition: .3s ease;
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 1;
+}
+.web a:hover, #active, .web:hover #active:hover{
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), white, rgba(255, 255, 255, 0)) 1;
+}
+.web:hover #active{
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 1;
+}
+.mob{
+    display: none;
+}
+.mobNav{
+    position: absolute;
+    width: 100%;
+    height: 40vh;
+    left: 0;
+    padding: 0;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: -1;
+    padding-top: 200px;
+    display: none;
+    background-color: #C33948;
+}
+.mobNav a{
+    width: 30vh;
+    padding: 2%;
+    border: solid 2px;
+    transition: .3s ease;
+    background-color: white;
+    border-radius: 12px;
+}
+
+/* nav animations */
+@keyframes expand{
+    from {}
+    to {transform: translateY(-200px)}
+}
+@keyframes close{
+    from {transform: translateY(-200px)}
+    to {transform: translateY(-700px)}
+}
+/* nav responsive */
+@media screen and (max-width:858px){
+    .web{
+        justify-content: end;
+    }
+    .web a{
+        display: none;
+    }
+    .mob{
+        display: block;
+        margin: 3%;
+    }
+    #mobIcon{
+        filter: brightness(0) saturate(100%) invert(100%) sepia(9%) saturate(7498%) hue-rotate(180deg) brightness(104%) contrast(116%);
+        cursor: pointer;
+    }
+    .mobNav{
+        display: flex;
+        transform: translateY(-710px);
+        color: black;
+    }
+    .mobNav:hover #mobActive{
+        background-color:white;
+        color: black;
+    }
+    .mobNav a:hover, #mobActive, .mobNav:hover #mobActive:hover{
+        background-color:black;
+        border-color: black;
+        color: white;
+    }
+    #me_index:hover, .web a:hover{
+        letter-spacing: 0px;
+    }
+}
+/* NAVBAR */
+
+.intro{
+    height: 95vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.whoDat{
+    width: 50%;
+    height: 100%;
+    padding-left: 2%;
+    padding-right: 2%;
+    background-image: url(../00_assets/svgs/wframe.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    transition: .3s ease;
+    background-color: rgb(253, 231, 231);
+
+}
+.whoDat:hover{
+    background-color: #ffe1e1;
+}
+.datWho{
+    text-align: center;
+}
+#meet, #more{
+    display: flex;
+    width: 100%;
+    height: 50%;
+}
+#meet{
+    align-items: flex-end;
+    justify-content: center;
+}
+#jz{
+    font-family: "Marcellus SC", serif;
+    font-size: 4em;
+    margin: 0px;
+}
+#meet h1, #followUp{
+    font-weight: 500;
+}
+#more{
+    align-items: start;
+    line-height: 150%;
+    font-size: 1.5em;
+    font-weight: 300;
+}
+.whoImg{
+    width: 50%; 
+    height: 100%;
+    overflow: hidden;
+}
+.imageZoom{
+    width: 100%; 
+    height: 100%;
+    background-image: url(../00_assets/me/jzt.jpeg);
+    background-size: cover;
+    background-position: center;
+    transition: .3s ease;
+}
+.imageZoom:hover{
+    transform: scale(105%);
+}
+#joy{
+    display: flex;
+    width: 100%;
+    background: linear-gradient(to right,#9198e500 40%,#C33948 80%);
+    position: absolute;
+    justify-content: end;
+    padding: .5% 1.5%;
+    bottom: 5vh;
+    right: 0;
+    z-index: 99;
+}
+#info{
+    padding-right: .5%;
+    transition: .3s ease;
+    cursor: pointer;
+    transition: .3s ease;
+}
+#info:hover{
+    filter: brightness(0) saturate(100%) invert(96%) sepia(4%) saturate(0%) hue-rotate(355deg) brightness(104%) contrast(105%);
+}
+#joyce{
+    color: white;
+    font-weight: 300;
+    align-self: center;
+}
+#joyce a:hover{
+    text-decoration: underline;
+} 
+
+#blank, .break small{
+    width: 50%;
+}
+.break small{
+    font-weight: 200;
+    text-align: center;
+}
+
+/* case studies */
+.caseStudies{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 15%;
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+.caseStudies h1{
+    font-family: "Marcellus SC", serif;
+    margin-top:0%;
+    margin-bottom: 10%;
+    font-size: 3em;
+    font-weight: 400;
+    text-align: center;
+}
+.case{
+    text-align: center;
+    margin-bottom: 20%;
+    transition: .3s ease;
+    position: relative;
+}
+.caseCover{
+    width: 100%;
+    cursor: pointer;
+}
+.caseCover:hover{
+    transform: scale(102%);
+}
+.viewImage{
+    position: absolute;
+    top: 0;
+    bottom:0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.856);
+    color: black;
+    visibility: hidden;
+    opacity: 0%;
+    padding: 5% 0%;
+    transition: .3s ease;
+    display: flex;
+    width: 10%;
+    align-self: center;
+    cursor: pointer;
+}
+.coverSymb{
+    user-select: none;
+    width: 100%;
+    text-align: center;
+    font-size: 2em;
+}
+.coverSymb:hover .case{
+    transform: scale(102%);
+}
+.case:hover .viewImage{
+    visibility: visible;
+    opacity: 100%;
+    box-shadow: rgba(0, 0, 0, 0.116) 0px 5px 5px;
+}
+
+/* footer */
+footer{
+    background-color: #C33948;
+    color: white;
+    font-family: "Work Sans", "serif";
+    height: fit-content;
+    padding-top: 2%;
+    padding-left: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#foot img{
+    filter: brightness(0) saturate(100%) invert(100%) sepia(9%) saturate(7498%) hue-rotate(180deg) brightness(104%) contrast(116%);
+}
+#email{
+    margin-top: 0%;
+    font-weight: 200;
+}
+#cr{
+    text-align: right;
+    padding-right: 2%;
+    font-weight: 200;
+}
+#followUp{
+    font-size: 1.5em;
+    text-align: left;
+    font-weight: 300;
+}
+.follow{
+    padding-top: 1%;
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+}
+.follow a{
+    transition: .3s ease;
+}
+.follow a:hover{
+    transform: scale(110%);
+}
+.follow img{
+    width: 2em;
+}
+#up1{
+    animation: t1 5s infinite ease-in-out;
+} 
+#up2{
+    animation: t2 5s infinite ease-in-out;
+}
+#up3{
+    animation: t3 5s infinite ease-in-out;
+} 
+
+/* animations */
+@keyframes t1{
+    from {transform: translateY(0px);}
+    10% {transform: translateY(-5px);}
+    20% {transform: translateY(0px);}
+    30% {}
+    to {}
+}
+@keyframes t2{
+    from {}
+    10% {transform: translateY(0px);}
+    20% {transform: translateY(-5px);}
+    30% {transform: translateY(0px);}
+    to {}
+}
+@keyframes t3{
+    from {}
+    10% {}
+    20% {transform: translateY(0px);}
+    30% {transform: translateY(-5px);}
+    40% {transform: translateY(0px);}
+}
+@keyframes in{
+    from {transform:translateX(250px);}
+    to {}
+}
+@keyframes jout{
+    from {}
+    to {opacity: 0%; transform:translateX(250px);}
+}
+@keyframes out{
+    from {}
+    to {transform:translateX(250px);}
+}
+
+
+/* responsive design */
+@media screen and (max-width: 1270px){
+    #more{
+        text-align: center;
+    }
+}
+@media screen and (max-width:858px){
+    .intro{
+        flex-direction: column;
+        height: 140vh;
+    }
+    #joy{
+        bottom: -40vh;
+        background: linear-gradient(to right,#9198e500,#C33948 50%);
+    }
+    #jz{
+        font-size: 2.6em;
+    }
+    .whoImg, .whoDat{
+        width: 100%;
+        height: 100vh;
+    }
+    .whoDat{
+        padding: 0px;
+        background-image: url(../00_assets/svgs/wframe.svg);
+    }
+    .whoImg{
+        height: 100vh;
+    }
+    .datWho p{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .caseStudies{
+        padding: 5%;
+        padding-top: 10%;
+        padding-bottom: 0%;
+    }
+    #cr{
+        text-align: center;
+    }
+    .case, .caseStudies h1{
+        margin-bottom: 30%;
+    }
+}
+@media screen and (max-width: 600px){
+    #meet{
+        height: 30%;
+    }
+    #more{
+        font-size: 1.1em;
+    }
+    .follow{
+        width: 30%;
+    }
+    .whoDat{
+        padding-top: 20%;
+        background-image: url(../00_assets/svgs/mframe.svg);
+        background-size: cover;
+        height: 50vh;
+    }
+}
+@media screen and (max-width: 425px){
+    .whoDat{
+        height: 100vh;
+    }
+    #meet{
+        height: 35%;
+    }
+    #followUp{
+        margin-top: 5%;
+       
+    }
+    .follow{
+        width: 40%;
+    }
+
+}
