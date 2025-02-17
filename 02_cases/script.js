@@ -39,7 +39,7 @@ function push(){
 }
 
 //Typing animation
-const set = ["Judy Zhang.","Judy.","Zhang."]
+const set = ["Evangelia.","Judy.","Zhang."]
 let quest = document.querySelector("#welcome")
 let sent = 0;
 let letter = 0;
