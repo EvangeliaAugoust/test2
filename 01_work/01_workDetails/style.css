@@ -337,7 +337,8 @@ footer{
     padding-top: 1%;
     width: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start; /* Βάζει τα εικονίδια στην αρχή */
+    gap: 30px; /* Προσαρμόζει την απόσταση μεταξύ τους */
 }
 .follow a{
     transition: .3s ease;

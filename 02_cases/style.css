@@ -263,7 +263,8 @@ footer{
     padding-top: 1%;
     width: 20%;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 10px;
 }
 .follow a{
     transition: .3s ease;
