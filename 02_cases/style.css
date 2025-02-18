@@ -264,7 +264,7 @@ footer{
     width: 20%;
     display: flex;
     justify-content: flex-start;
-    gap: 10px;
+    gap: 30px;
 }
 .follow a{
     transition: .3s ease;
