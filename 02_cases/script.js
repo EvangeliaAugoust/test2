@@ -104,3 +104,10 @@ function chat(){
     }
 }
 chat();
+
+document.querySelectorAll('.projectLeft img').forEach(img => {
+    img.addEventListener('click', function(event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  });

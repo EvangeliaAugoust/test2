@@ -201,6 +201,18 @@ nav{
     border-top: white solid 2rem;
     border-bottom: white solid 2rem;
 }
+
+.projectLeft img {
+    pointer-events: auto;
+}
+
+.projectLeft {
+    pointer-events: none;
+    cursor: default;
+}
+
+
+
 .projectRight{
     background-image: url(../00_assets/svgs/dg.svg);
     flex-direction: row-reverse;
