@@ -183,7 +183,7 @@ nav{
     height: 10vh;
 }
 .projectLeft, .projectRight{        /*Per every project*/
-    background-size: 1500% auto;
+    background-size: 130% auto;
     background-repeat: no-repeat;
     background-position: center;    
     width: 100%;
