@@ -36,6 +36,7 @@ nav{
 }
 #me_index{
     filter: brightness(0) saturate(100%) invert(33%) sepia(15%) saturate(2528%) hue-rotate(305deg) brightness(105%) contrast(107%);
+    margin-left: 30px;
 }
 #me_index:hover, .web a:hover{
     letter-spacing: 0.5px;
