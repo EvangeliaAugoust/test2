@@ -224,14 +224,11 @@ nav{
     width: 40vw;
     transition: .3s ease;
 }
-.projectLeft:hover .projectImg{
-    transform: translateX(10px) scale(105%);
-    box-shadow: rgba(0, 0, 0, 0.158) 5px 5px 5px 5px;
+
+.projectImg:hover {
+    transform: scale(1.05);
 }
-.projectRight:hover .projectImg{
-    transform: translateX(-10px) scale(105%);
-    box-shadow: rgba(0, 0, 0, 0.158) -5px 5px 5px 5px;
-}
+
 .projectTitle{
     font-size: 6vw;
     font-weight: 500;
