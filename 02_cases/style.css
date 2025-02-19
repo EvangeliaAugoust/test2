@@ -209,8 +209,13 @@ nav{
 }
 
 .projectLeft {
-    pointer-events: none;
+    pointer-events: none; /* Αποτρέπει το κλικ στο background */
     cursor: default;
+}
+
+.projectLeft img, .follow img {
+    pointer-events: auto; /* Επιτρέπει το κλικ στις εικόνες και στα εικονίδια */
+    cursor: pointer;
 }
 
 
