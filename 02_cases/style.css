@@ -193,7 +193,9 @@ nav{
     cursor: pointer;
 }
 .projectLeft{
-    background-image: url(../00_assets/svgs/bg.svg);
+    background-image: url(../00_assets/svgs/dis.png);
+    background-position: center 75%;
+
 }
 .projectLeft, .projectRight{
     padding-top: 2%;
