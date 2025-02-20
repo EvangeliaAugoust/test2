@@ -298,6 +298,11 @@ footer{
 .contact img {
     width: 2em;
     height: auto; /* Για να κρατήσει το σωστό aspect ratio */
+    transition: transform 0.3s ease-in-out; /* Ομαλή μετάβαση */
+}
+
+.contact a:hover img {
+    transform: scale(1.1); /* Μικρό zoom in */
 }
 
 .follow{
