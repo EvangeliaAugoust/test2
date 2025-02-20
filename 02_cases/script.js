@@ -105,9 +105,13 @@ function chat(){
 }
 chat();
 
-document.querySelectorAll('.projectLeft img').forEach(img => {
+document.querySelectorAll('.follow a img').forEach(img => {
     img.addEventListener('click', function(event) {
-      event.preventDefault();
-      event.stopPropagation();
+        event.stopPropagation(); // Σταματάει το click να επηρεάζει άλλα στοιχεία
     });
-  });
+});
+
+document.querySelector('.projectLeft .projectImg').addEventListener('click', function(event) {
+    event.preventDefault(); // Σταματάει το redirect
+    event.stopPropagation(); // Δεν αφήνει το click να επηρεάσει άλλα στοιχεία
+});

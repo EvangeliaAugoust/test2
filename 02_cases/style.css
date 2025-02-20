@@ -209,13 +209,8 @@ nav{
 }
 
 .projectLeft {
-    pointer-events: none; /* Αποτρέπει το κλικ στο background */
+    pointer-events: none;
     cursor: default;
-}
-
-.projectLeft img, .follow img {
-    pointer-events: auto; /* Επιτρέπει το κλικ στις εικόνες και στα εικονίδια */
-    cursor: pointer;
 }
 
 
@@ -233,7 +228,6 @@ nav{
 .projectImg:hover {
     transform: scale(1.05);
 }
-
 .projectTitle{
     font-size: 6vw;
     font-weight: 500;
