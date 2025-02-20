@@ -285,6 +285,7 @@ footer{
     text-decoration: none; /* Αφαιρεί την υπογράμμιση από τα links */
     color: inherit; /* Διατηρεί το αρχικό χρώμα του κειμένου */
     gap: 15px; /* Αυξάνει το περιθώριο μεταξύ εικόνας και κειμένου */
+    transition: .3s ease; /* Ομαλή μετάβαση όπως στο .follow */
 }
 
 .contact a span {
@@ -298,11 +299,10 @@ footer{
 .contact img {
     width: 2em;
     height: auto; /* Για να κρατήσει το σωστό aspect ratio */
-    transition: transform 0.3s ease-in-out; /* Ομαλή μετάβαση */
 }
 
-.contact a:hover img {
-    transform: scale(1.1); /* Μικρό zoom in */
+.contact a:hover {
+    transform: scale(1.1); /* Μεγέθυνση κατά 10% */
 }
 
 .follow{
