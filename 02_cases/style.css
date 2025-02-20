@@ -270,22 +270,36 @@ footer{
     font-weight: 300;
     text-align: left;
 }
-.follow{
+
+.follow {
     padding-top: 1%;
     width: 20%;
     display: flex;
     justify-content: flex-start;
-    gap: 30px;
+    align-items: center; /* Κεντράρει τα στοιχεία κάθετα */
 }
-.follow a{
-    transition: .3s ease;
+
+.follow a {
+    display: flex; /* Βάζει το κείμενο και την εικόνα στην ίδια γραμμή */
+    align-items: center; /* Κεντράρει το κείμενο κάθετα */
+    text-decoration: none; /* Αφαιρεί την υπογράμμιση από τα links */
+    color: inherit; /* Διατηρεί το αρχικό χρώμα του κειμένου */
+    gap: 15px; /* Αυξάνει το περιθώριο μεταξύ εικόνας και κειμένου */
 }
-.follow a:hover{
-    transform: scale(110%);
+
+.follow a span {
+    font-weight: 500; /* Μειώνει το bold (400 είναι κανονικό, 500 είναι λίγο πιο έντονο) */
 }
-.follow img{
+
+.follow a:hover span {
+    text-decoration: underline; /* Υπογραμμίζει μόνο τη λέξη στο hover */
+}
+
+.follow img {
     width: 2em;
+    height: auto; /* Για να κρατήσει το σωστό aspect ratio */
 }
+
 #up1{
     animation: t1 5s infinite ease-in-out;
 } 
