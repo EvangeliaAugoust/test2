@@ -282,10 +282,14 @@ footer{
 .contact a {
     display: flex; /* Βάζει το κείμενο και την εικόνα στην ίδια γραμμή */
     align-items: center; /* Κεντράρει το κείμενο κάθετα */
-    text-decoration: none; /* Αφαιρεί την υπογράμμιση από τα links */
     color: inherit; /* Διατηρεί το αρχικό χρώμα του κειμένου */
-    gap: 15px; /* Αυξάνει το περιθώριο μεταξύ εικόνας και κειμένου */
-    transition: .3s ease; /* Ομαλή μετάβαση όπως στο .follow */
+    gap: 15px; /* Απόσταση μεταξύ εικόνας και κειμένου */
+    transition: transform 0.3s ease-in-out; /* Ομαλή μετάβαση */
+}
+
+.contact a:hover {
+    transform: scale(1.1); /* Μεγέθυνση κατά 10% */
+    cursor: pointer; /* Κάνει τον κέρσορα "χεράκι" */
 }
 
 .contact a span {
@@ -299,10 +303,6 @@ footer{
 .contact img {
     width: 2em;
     height: auto; /* Για να κρατήσει το σωστό aspect ratio */
-}
-
-.contact a:hover {
-    transform: scale(1.1); /* Μεγέθυνση κατά 10% */
 }
 
 .follow{
