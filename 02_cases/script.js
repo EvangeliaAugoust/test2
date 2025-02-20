@@ -105,7 +105,7 @@ function chat(){
 }
 chat();
 
-document.querySelectorAll('.follow a img').forEach(img => {
+document.querySelectorAll('.contact a img').forEach(img => {
     img.addEventListener('click', function(event) {
         event.stopPropagation(); // Σταματάει το click να επηρεάζει άλλα στοιχεία
     });
