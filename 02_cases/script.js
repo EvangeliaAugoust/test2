@@ -38,47 +38,82 @@ function push(){
     window.location.href = "./00_caseDetails/index.html";
 }
 
-//Typing animation
-const set = ["Evangelia Avgoustopoulou.","Evangelia.","Avgoustopoulou."]
-let quest = document.querySelector("#welcome")
-let sent = 0;
-let letter = 0;
-quest.innerHTML = "<span style=\"color:rgba(0,0,0,0);\">|</span>";
+// Typing animation
+// Typing animation για το "Evangelia Avgoustopoulou."
+const welcomeText = ["Evangelia Avgoustopoulou.", "Evangelia.", "Avgoustopoulou."];
+let welcomeElement = document.querySelector("#welcome");
+let welcomeIndex = 0, welcomeLetter = 0;
 
-function pause(){
-    let say = setInterval(() => {
-        quest.innerHTML += set[sent][letter]
-        letter += 1;
-        if(letter >= set[sent].length){
-            setTimeout(() => {
-                erase()
-            },5000)
-            clearInterval(say);    
+welcomeElement.innerHTML = "<span style=\"color:rgba(0,0,0,0);\">|</span>";
+
+function typeText(element, textArray, textIndex, letterIndex, callback, speed = 150) {
+    let interval = setInterval(() => {
+        element.innerHTML += textArray[textIndex][letterIndex];
+        letterIndex++;
+
+        if (letterIndex >= textArray[textIndex].length) {
+            setTimeout(() => eraseText(element, textArray, textIndex, letterIndex, callback), 5000);
+            clearInterval(interval);
+        }
+    }, speed);
+}
+
+function eraseText(element, textArray, textIndex, letterIndex, callback) {
+    let interval = setInterval(() => {
+        element.innerHTML = "<span style=\"color:rgba(0,0,0,0);\">|</span>" + textArray[textIndex].slice(0, letterIndex);
+        letterIndex--;
+
+        if (letterIndex < 0) {
+            callback();
+            clearInterval(interval);
         }
     }, 150);
 }
 
-function erase(){
-    let stop = setInterval(() => {
-        quest.innerHTML = "<span style=\"color:rgba(0,0,0,0);\">|</span>" + set[sent].slice(0,letter)
-        letter -= 1;
-        if (letter < 0){
-            restate()
-            clearInterval(stop)
-        }
-    }, 150)
+function restartWelcome() {
+    welcomeIndex = (welcomeIndex + 1) % welcomeText.length;
+    welcomeLetter = 0;
+    typeText(welcomeElement, welcomeText, welcomeIndex, welcomeLetter, restartWelcome);
 }
 
-pause()
-function restate(){
-    if(sent == 2){
-        sent = 0;
-    }else{
-        sent += 1;
-    }
-    letter = 0;
-    pause()
+// Εκκίνηση animation για το welcome
+typeText(welcomeElement, welcomeText, welcomeIndex, welcomeLetter, restartWelcome);
+
+// --- WHO I AM Animation (χωρίς επανάληψη και με scroll detection) ---
+const whoIAmText = "ho I Am"; // Αφήνουμε έξω το πρώτο γράμμα "W"
+let whoIAmElement = document.querySelector("#whoIAm");
+let whoIAmLetter = 0;
+let whoIAmStarted = false;
+let whoIAmSpeed = 200;
+
+// Εμφανίζουμε το "W" από την αρχή
+whoIAmElement.innerHTML = "W";
+
+function typeWhoIAm() {
+    let interval = setInterval(() => {
+        whoIAmElement.innerHTML += whoIAmText[whoIAmLetter]; // Συνεχίζουμε από το "W"
+        whoIAmLetter++;
+
+        if (whoIAmLetter >= whoIAmText.length) {
+            clearInterval(interval);
+        }
+    }, whoIAmSpeed);
 }
+
+// Παρακολουθούμε το scroll για να ξεκινήσει το animation
+window.addEventListener("scroll", function() {
+    if (!whoIAmStarted) {
+        let rect = whoIAmElement.getBoundingClientRect();
+        let screenHeight = window.innerHeight;
+
+        if (rect.top < screenHeight - 50) { // Όταν πλησιάζει στην οθόνη
+            whoIAmStarted = true;
+            typeWhoIAm();
+        }
+    }
+});
+
+
 
 //Navbar scroll events 
 // let r = 195;
