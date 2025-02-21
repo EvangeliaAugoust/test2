@@ -88,9 +88,8 @@ nav{
 
 /* Ypogrammish 3 phraseis sto keimeno */
 .underline-animation {
-    display: inline;
+    display: inline-block;
     position: relative;
-    white-space: nowrap;
 }
 
 .underline-animation::after {
@@ -199,11 +198,14 @@ nav{
 }
 
 .projectBrief {
-    font-size: 1rem; /* Αυξάνει ελαφρώς το μέγεθος */
-    line-height: 1.5; /* Βελτιώνει την αναγνωσιμότητα */
-    color: #000000; /* Σκούρο γκρι για ξεκούραστο διάβασμα */
-    max-width: 700px; /* Περιορίζει το πλάτος για καλύτερη αναγνωσιμότητα */
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #000000;
+    max-width: 700px;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
+
 
 .subDetail {
     color: #101010; /* Σκούρο γκρι για ξεκούραστο διάβασμα */
@@ -432,7 +434,7 @@ footer{
 
 .quote {
     font-size: 20px; /* Μεγαλώνει το ❝ */
-    color: #001116;
+    color: #001116; 
     font-weight: bold; /* Κάνει το σύμβολο πιο έντονο */
     margin-right: 2px; /* Δίνει λίγο κενό από το κείμενο */
     display: inline-block; /* Το κρατάει σωστά στοιχισμένο */
