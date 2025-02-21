@@ -100,7 +100,6 @@ nav{
     width: 0%;
     height: 3px;
     background-color: #5f9eb0;
-    transition: width 1.5s ease-in-out;
 }
 
 .underline-active::after {
@@ -437,3 +436,51 @@ footer{
     display: inline-block; /* Το κρατάει σωστά στοιχισμένο */
     letter-spacing: 1px;
 }
+
+/* Κλάση για το rectangle effect */
+.highlight-animation {
+    position: relative;
+    display: inline-block;
+}
+
+/* Το rectangle effect */
+.highlight-animation::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #5f9eb0; /* Χρώμα επισήμανσης */
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.5s ease-in-out;
+}
+
+/* Αλλαγή στο χρώμα των γραμμάτων ΜΟΝΟ όταν παίζει το animation */
+.highlight-animation span {
+    transition: color 0s ease-in-out;
+}
+
+/* Ενεργοποιεί το animation και αλλάζει το κείμενο σε λευκό */
+.highlight-active::before {
+    transform: scaleX(1);
+}
+
+/* Γίνεται άσπρο το κείμενο όσο διαρκεί η επισήμανση */
+.highlight-active span {
+    color: white;
+}
+
+/* Όταν τελειώσει το animation, εξαφανίζεται το rectangle */
+.highlight-hide::before {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Όταν τελειώσει το animation, το κείμενο γίνεται πάλι μαύρο */
+.highlight-hide span {
+    color: black;
+}
+
+

@@ -173,3 +173,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     window.addEventListener("scroll", checkScroll);
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+    const highlightElements = document.querySelectorAll(".highlight-animation");
+
+    highlightElements.forEach((el, index) => {
+        setTimeout(() => {
+            el.classList.add("highlight-active");
+
+            // Μετά από 1.5 δευτερόλεπτα, εξαφανίζουμε την επισήμανση
+            setTimeout(() => {
+                el.classList.remove("highlight-active");
+                el.classList.add("highlight-hide"); // Το κάνει fade out
+            }, 1500);
+        }, index * 1000); // Καθυστέρηση ανάλογα με τη σειρά εμφάνισης
+    });
+});
