@@ -158,6 +158,7 @@
 .highlight-animation {
     position: relative;
     display: inline-block;
+    color: black; /* Τα γράμματα ξεκινούν μαύρα */
 }
 
 /* Το rectangle effect */
@@ -166,39 +167,38 @@
     position: absolute;
     left: 0;
     top: 0;
-    width: 100%;
+    width: 0%;
     height: 100%;
-    background-color: #5f9eb0; /* Χρώμα επισήμανσης */
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 1.5s ease-in-out;
+    background-color: #5f9eb0; /* Σταθερό χρώμα */
+    transition: width 1.5s ease-in-out;
 }
 
-/* Αλλαγή στο χρώμα των γραμμάτων ΜΟΝΟ όταν παίζει το animation */
+/* Το κείμενο παραμένει μαύρο αρχικά */
 .highlight-animation span {
-    transition: color 0.1s ease-in-out;
+    position: relative;
+    transition: color 0.3s ease-in-out;
 }
 
-/* Ενεργοποιεί το animation και αλλάζει το κείμενο σε λευκό */
+/* Όταν ξεκινά το animation */
 .highlight-active::before {
-    transform: scaleX(1);
+    width: 100%; /* Επεκτείνεται πλήρως */
 }
 
-/* Γίνεται άσπρο το κείμενο όσο διαρκεί η επισήμανση */
+/* Κείμενο γίνεται άσπρο μόνο όταν καλύπτεται */
 .highlight-active span {
     color: white;
 }
 
-/* Όταν τελειώσει το animation, εξαφανίζεται το rectangle */
+/* Όταν τελειώσει το animation, επιστρέφει στο αρχικό του χρώμα */
 .highlight-hide::before {
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
 }
 
-/* Όταν τελειώσει το animation, το κείμενο γίνεται πάλι μαύρο */
 .highlight-hide span {
     color: black;
 }
+
 
 
 
