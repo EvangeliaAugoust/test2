@@ -152,41 +152,42 @@ document.querySelector('.projectLeft .projectImg').addEventListener('click', fun
 });
 
 
-// Για την υπογράμμιση στις φράσεις
 document.addEventListener("DOMContentLoaded", function () {
-    const phrases = document.querySelectorAll(".underline-animation");
+    const highlightElements = document.querySelectorAll(".highlight-animation");
     let currentIndex = 0;
 
     function checkScroll() {
-        if (currentIndex >= phrases.length) return; // Σταματάει αν έχουν ήδη ενεργοποιηθεί όλες οι φράσεις
-        
-        let rect = phrases[currentIndex].getBoundingClientRect();
+        if (currentIndex >= highlightElements.length) return;
+
+        let rect = highlightElements[currentIndex].getBoundingClientRect();
         let screenHeight = window.innerHeight;
 
-        if (rect.top < screenHeight - 50) { // Όταν πλησιάζει στην οθόνη
-            phrases[currentIndex].classList.add("underline-active");
-            currentIndex++; // Μεταβαίνουμε στην επόμενη φράση
+        if (rect.top < screenHeight - 50) { // Όταν η φράση πλησιάζει στην οθόνη
+            let el = highlightElements[currentIndex];
+            let underline = el.querySelector(".underline-animation");
 
-            setTimeout(checkScroll, 1700); // Δίνουμε χρόνο για την ολοκλήρωση της υπογράμμισης πριν πάμε στην επόμενη
+            setTimeout(() => {
+                el.classList.add("highlight-active"); // Ενεργοποιεί το rectangle animation
+
+                setTimeout(() => {
+                    el.classList.remove("highlight-active");
+                    el.classList.add("highlight-hide"); // Fade out το rectangle
+
+                    setTimeout(() => {
+                        if (underline) {
+                            underline.classList.add("underline-active"); // Ενεργοποιεί την υπογράμμιση
+                        }
+                        currentIndex++; // Μεταβαίνουμε στην επόμενη φράση μόνο αφού ολοκληρωθεί η προηγούμενη
+                        checkScroll(); // Ξανακαλεί τη συνάρτηση για το επόμενο στοιχείο
+                    }, 50); // Μικρή καθυστέρηση για ομαλή μετάβαση
+
+                }, 1500); // Χρόνος για το rectangle animation
+
+            }, currentIndex * 1000); // Καθυστερεί κάθε φράση με βάση τη σειρά της
         }
     }
 
     window.addEventListener("scroll", checkScroll);
 });
 
-// Για την επισήμανση στις φράσεις
-document.addEventListener("DOMContentLoaded", function () {
-    const highlightElements = document.querySelectorAll(".highlight-animation");
 
-    highlightElements.forEach((el, index) => {
-        setTimeout(() => {
-            el.classList.add("highlight-active");
-
-            // Μετά από 1.5 δευτερόλεπτα, εξαφανίζουμε την επισήμανση
-            setTimeout(() => {
-                el.classList.remove("highlight-active");
-                el.classList.add("highlight-hide"); // Το κάνει fade out
-            }, 1500);
-        }, index * 1000); // Καθυστέρηση ανάλογα με τη σειρά εμφάνισης
-    });
-});
