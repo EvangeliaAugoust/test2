@@ -88,7 +88,7 @@ nav{
 
 /* Ypogrammish 3 phraseis sto keimeno */
 .underline-animation {
-    display: inline-block;
+    display: inline-flex;
     position: relative;
 }
 
@@ -198,14 +198,11 @@ nav{
 }
 
 .projectBrief {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #000000;
-    max-width: 700px;
-    word-break: break-word;
-    overflow-wrap: break-word;
+    font-size: 1rem; /* Αυξάνει ελαφρώς το μέγεθος */
+    line-height: 1.5; /* Βελτιώνει την αναγνωσιμότητα */
+    color: #000000; /* Σκούρο γκρι για ξεκούραστο διάβασμα */
+    max-width: 700px; /* Περιορίζει το πλάτος για καλύτερη αναγνωσιμότητα */
 }
-
 
 .subDetail {
     color: #101010; /* Σκούρο γκρι για ξεκούραστο διάβασμα */
