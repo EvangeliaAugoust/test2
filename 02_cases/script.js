@@ -152,7 +152,7 @@ document.querySelector('.projectLeft .projectImg').addEventListener('click', fun
 });
 
 
-// Ypogrammish 3 phraseis sto keimeno
+// Για την υπογράμμιση στις φράσεις
 document.addEventListener("DOMContentLoaded", function () {
     const phrases = document.querySelectorAll(".underline-animation");
     let currentIndex = 0;
@@ -174,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("scroll", checkScroll);
 });
 
+// Για την επισήμανση στις φράσεις
 document.addEventListener("DOMContentLoaded", function () {
     const highlightElements = document.querySelectorAll(".highlight-animation");
 
