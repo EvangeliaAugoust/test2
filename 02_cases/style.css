@@ -428,3 +428,12 @@ footer{
         transform: scale(101%);
     }
 }
+
+.quote {
+    font-size: 20px; /* Μεγαλώνει το ❝ */
+    color: #001116;
+    font-weight: bold; /* Κάνει το σύμβολο πιο έντονο */
+    margin-right: 2px; /* Δίνει λίγο κενό από το κείμενο */
+    display: inline-block; /* Το κρατάει σωστά στοιχισμένο */
+    letter-spacing: 1px;
+}
