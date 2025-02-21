@@ -79,39 +79,47 @@ function restartWelcome() {
 // Εκκίνηση animation για το welcome
 typeText(welcomeElement, welcomeText, welcomeIndex, welcomeLetter, restartWelcome);
 
-// --- WHO I AM Animation (χωρίς επανάληψη και με scroll detection) ---
+// --- WHO I AM Animation (επανάληψη κάθε φορά που φέυγει απτήν οθόνη και με scroll detection) ---
 const whoIAmText = "ho I Am"; // Αφήνουμε έξω το πρώτο γράμμα "W"
 let whoIAmElement = document.querySelector("#whoIAm");
 let whoIAmLetter = 0;
-let whoIAmStarted = false;
 let whoIAmSpeed = 200;
+let isAnimating = false; // Flag για να αποφεύγουμε επαναλήψεις όσο είναι ορατό
 
 // Εμφανίζουμε το "W" από την αρχή
 whoIAmElement.innerHTML = "W";
 
+// Συνάρτηση για να ξεκινήσει το animation
 function typeWhoIAm() {
+    if (isAnimating) return; // Αν ήδη τρέχει animation, δεν το ξαναρχίζουμε
+    isAnimating = true;
+    whoIAmElement.innerHTML = "W"; // Reset το περιεχόμενο
+    whoIAmLetter = 0;
+
     let interval = setInterval(() => {
-        whoIAmElement.innerHTML += whoIAmText[whoIAmLetter]; // Συνεχίζουμε από το "W"
+        whoIAmElement.innerHTML += whoIAmText[whoIAmLetter];
         whoIAmLetter++;
 
         if (whoIAmLetter >= whoIAmText.length) {
             clearInterval(interval);
+            setTimeout(() => {
+                isAnimating = false; // Επιτρέπουμε νέο animation αφού ολοκληρωθεί
+            }, 500);
         }
     }, whoIAmSpeed);
 }
 
-// Παρακολουθούμε το scroll για να ξεκινήσει το animation
-window.addEventListener("scroll", function() {
-    if (!whoIAmStarted) {
-        let rect = whoIAmElement.getBoundingClientRect();
-        let screenHeight = window.innerHeight;
-
-        if (rect.top < screenHeight - 50) { // Όταν πλησιάζει στην οθόνη
-            whoIAmStarted = true;
-            typeWhoIAm();
+// Χρησιμοποιούμε το Intersection Observer API
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            typeWhoIAm(); // Εκκίνηση animation όταν το στοιχείο γίνει ορατό
         }
-    }
-});
+    });
+}, { threshold: 0.5 }); // Το animation ξεκινά όταν τουλάχιστον 50% του στοιχείου είναι ορατό
+
+observer.observe(whoIAmElement); // Παρακολουθούμε το στοιχείο
+
 
 
 
