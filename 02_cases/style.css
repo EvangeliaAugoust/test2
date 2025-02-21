@@ -88,9 +88,9 @@ nav{
 
 /* Ypogrammish 3 phraseis sto keimeno */
 .underline-animation {
-    display: inline;
-    position: relative;
-    white-space: nowrap;
+    text-decoration: underline;
+    text-decoration-color: #5f9eb0;
+    text-decoration-thickness: 3px;
 }
 
 .underline-animation::after {
