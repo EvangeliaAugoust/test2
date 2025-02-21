@@ -176,7 +176,7 @@
 
 /* Αλλαγή στο χρώμα των γραμμάτων ΜΟΝΟ όταν παίζει το animation */
 .highlight-animation span {
-    transition: color 0s ease-in-out;
+    transition: color 0.1s ease-in-out;
 }
 
 /* Ενεργοποιεί το animation και αλλάζει το κείμενο σε λευκό */

@@ -183,7 +183,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 }, 1500); // Χρόνος για το rectangle animation
 
-            }, currentIndex * 1000); // Καθυστερεί κάθε φράση με βάση τη σειρά της
+            }, currentIndex * 100); // Καθυστερεί κάθε φράση με βάση τη σειρά της
         }
     }
 
