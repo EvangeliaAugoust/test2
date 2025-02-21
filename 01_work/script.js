@@ -99,3 +99,46 @@ info.addEventListener("click", () => {
         }, 1000)
     }
 })
+
+// --- INTRO TEXT Animation (χωρίς επανάληψη, ξεκινάει με το load) ---
+const introPart1 = "Hi! 👋"; // Το πρώτο κομμάτι που περιλαμβάνει το "Hi! 👋"
+const introText = " I'm an aspiring UX/UI Designer, graduated in Computer Science, with a burning passion for creating intuitive user-friendly and equitable designs✨"; // Αφήνουμε έξω το "Hi! 👋"
+let introElement = document.querySelector("#introText");
+let introLetter = 0;
+let introSpeed = 40;
+
+// Εμφανίζουμε το πρώτο κομμάτι με το "Hi! 👋"
+introElement.innerHTML = "";
+
+// Λειτουργία για το πρώτο μέρος του animation (μόνο το "Hi! 👋")
+function typeIntroPart1() {
+    let interval = setInterval(() => {
+        if (introLetter < introPart1.length) { // Γράφουμε μόνο το "Hi! 👋"
+            introElement.innerHTML += introPart1[introLetter];
+            introLetter++;
+        } else {
+            clearInterval(interval); // Σταματάμε μόλις ολοκληρωθεί το "Hi! 👋"
+            introLetter = 0; // Επαναφέρουμε το introLetter για το επόμενο τμήμα
+            setTimeout(typeIntroPart2, 1000); // Περιμένουμε 1 δευτερόλεπτο και μετά ξεκινάμε το δεύτερο μέρος
+        }
+    }, introSpeed);
+}
+
+// Λειτουργία για το δεύτερο μέρος του animation (ο υπόλοιπος κείμενο)
+function typeIntroPart2() {
+    let interval = setInterval(() => {
+        if (introLetter < introText.length) { // Συνεχίζουμε με το υπόλοιπο κείμενο
+            introElement.innerHTML += introText[introLetter];
+            introLetter++;
+        } else {
+            clearInterval(interval); // Σταματάμε όταν τελειώσει το κείμενο
+        }
+    }, introSpeed);
+}
+
+// Ξεκινάμε το animation μόλις φορτώσει η σελίδα
+window.addEventListener("load", typeIntroPart1);
+
+
+// Ξεκινάμε το animation μόλις φορτώσει η σελίδα
+window.addEventListener("load", typeIntroPart1);
