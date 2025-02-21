@@ -150,3 +150,26 @@ document.querySelector('.projectLeft .projectImg').addEventListener('click', fun
     event.preventDefault(); // Σταματάει το redirect
     event.stopPropagation(); // Δεν αφήνει το click να επηρεάσει άλλα στοιχεία
 });
+
+
+// Ypogrammish 3 phraseis sto keimeno
+document.addEventListener("DOMContentLoaded", function () {
+    const phrases = document.querySelectorAll(".underline-animation");
+    let currentIndex = 0;
+
+    function checkScroll() {
+        if (currentIndex >= phrases.length) return; // Σταματάει αν έχουν ήδη ενεργοποιηθεί όλες οι φράσεις
+        
+        let rect = phrases[currentIndex].getBoundingClientRect();
+        let screenHeight = window.innerHeight;
+
+        if (rect.top < screenHeight - 50) { // Όταν πλησιάζει στην οθόνη
+            phrases[currentIndex].classList.add("underline-active");
+            currentIndex++; // Μεταβαίνουμε στην επόμενη φράση
+
+            setTimeout(checkScroll, 1700); // Δίνουμε χρόνο για την ολοκλήρωση της υπογράμμισης πριν πάμε στην επόμενη
+        }
+    }
+
+    window.addEventListener("scroll", checkScroll);
+});

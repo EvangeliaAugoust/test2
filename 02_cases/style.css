@@ -86,6 +86,28 @@ nav{
     border-radius: 12px;
 }
 
+/* Ypogrammish 3 phraseis sto keimeno */
+.underline-animation {
+    display: inline-block;
+    position: relative;
+}
+
+.underline-animation::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 3px;
+    background-color: #5f9eb0;
+    transition: width 1.5s ease-in-out;
+}
+
+.underline-active::after {
+    width: 100%;
+}
+
+
 /* nav animations */
 @keyframes expand{
     from {}
