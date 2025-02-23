@@ -100,15 +100,17 @@ info.addEventListener("click", () => {
     }
 })
 
-// --- INTRO TEXT Animation (χωρίς επανάληψη, ξεκινάει με το load) ---
+// --- INTRO TEXT Animation (χωρίς επανάληψη, ξεκινάει με το load) --- 
 const introPart1 = "Hi! 👋"; // Το πρώτο κομμάτι που περιλαμβάνει το "Hi! 👋"
-const introText = " I'm an aspiring UX/UI Designer, graduated in Computer Science, with a burning passion for creating intuitive user-friendly and equitable designs✨"; // Αφήνουμε έξω το "Hi! 👋"
+const introText = " I'm an aspiring UX/UI Designer, graduated in Computer Science, with a burning passion for creating intuitive user-friendly and equitable designs✨"; // Το υπόλοιπο κείμενο
+
 let introElement = document.querySelector("#introText");
 let introLetter = 0;
 let introSpeed = 40;
 
 // Εμφανίζουμε το πρώτο κομμάτι με το "Hi! 👋"
 introElement.innerHTML = "";
+introElement.style.visibility = "visible"; // Δείχνουμε το κείμενο μόλις ξεκινήσει το animation
 
 // Λειτουργία για το πρώτο μέρος του animation (μόνο το "Hi! 👋")
 function typeIntroPart1() {
@@ -124,21 +126,30 @@ function typeIntroPart1() {
     }, introSpeed);
 }
 
-// Λειτουργία για το δεύτερο μέρος του animation (ο υπόλοιπος κείμενο)
+// Λειτουργία για το δεύτερο μέρος του animation (το υπόλοιπο κείμενο)
 function typeIntroPart2() {
     let interval = setInterval(() => {
-        if (introLetter < introText.length) { // Συνεχίζουμε με το υπόλοιπο κείμενο
-            introElement.innerHTML += introText[introLetter];
+        if (introLetter < introText.length) { 
+            let char = introText[introLetter];
+
+            // Προσθήκη αλλαγής γραμμής στα σωστά σημεία
+            if (introText.startsWith(" Science,", introLetter)) {
+                introElement.innerHTML += "<br>";
+            } 
+            if (introText.startsWith(" user-", introLetter)) {
+                introElement.innerHTML += "<br>";
+            }
+
+            introElement.innerHTML += char;
             introLetter++;
-        } else {
-            clearInterval(interval); // Σταματάμε όταν τελειώσει το κείμενο
+
+            // Αν φτάσουμε στο τέλος, σταματάμε το animation
+            if (introLetter === introText.length) {
+                clearInterval(interval);
+            }
         }
     }, introSpeed);
 }
-
-// Ξεκινάμε το animation μόλις φορτώσει η σελίδα
-window.addEventListener("load", typeIntroPart1);
-
 
 // Ξεκινάμε το animation μόλις φορτώσει η σελίδα
 window.addEventListener("load", typeIntroPart1);
