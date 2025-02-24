@@ -141,6 +141,9 @@ nav{
     background-position: center;
     background-repeat: no-repeat;
 }
+#mobileHero{
+    background-image: url("../../00_assets/projects/cases/heroImage/mobiletest2.png");
+}
 #stellarHero{
     background-image: url("../../00_assets/projects/cases/heroImage/stellar.svg");
 }
