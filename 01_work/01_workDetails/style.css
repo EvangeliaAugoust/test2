@@ -491,3 +491,8 @@ footer{
     width: 150vw; /* Μειώνουμε το μέγεθος σε σχέση με το πλάτος της οθόνης */
     max-width: 800px; /* Όριο στο μέγιστο πλάτος */
 }
+
+.mshowstoryboard{
+    flex-direction: column;
+    align-items: left;
+}
