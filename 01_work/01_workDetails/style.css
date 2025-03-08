@@ -159,34 +159,41 @@ nav{
 }
 
 /* process */
-ul{
+ul {
     all: unset;
 }
-.process{
+
+.process {
     z-index: 98;
-    position:fixed;
-    bottom: 30vh;
-    right: 7%;
+    position: fixed;
+    bottom: 35vh; /* λίγο πιο πάνω */
+    right: 2%; /* πιο κοντά στην άκρη */
     display: flex;
     flex-direction: column;
     background-color: #ffffff00;
-    padding: 1%;
-    color: rgba(0, 0, 0, 0.377);
+    padding: 0.8%; /* ελαφρώς μεγαλύτερο padding */
+    color: rgba(0, 0, 0, 0.5); /* ελαφρώς πιο σκούρο */
     border-radius: 5px;
     transition: .3s ease;
+    font-size: 0.9rem; /* λίγο μεγαλύτερο από πριν */
 }
-.process:hover{
+
+.process:hover {
     background-color: aliceblue;
 }
-.goTo, #top{
+
+.goTo, #top {
     transition: .1s ease;
+    font-size: 0.9rem; /* ταιριάζει με το process */
 }
-.goTo{
-    margin-bottom: 10%;
+
+.goTo {
+    margin-bottom: 7%; /* λίγο περισσότερο κενό ανάμεσα στις επιλογές */
 }
-.goTo:hover, #top:hover{
+
+.goTo:hover, #top:hover {
     color: #C33948;
-} 
+}
 
 /* show n tell*/
 .stage{
