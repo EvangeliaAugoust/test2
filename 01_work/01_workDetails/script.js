@@ -35,26 +35,68 @@ function chat(){
 }
 chat();
 
-//zoomies jq
 const processImg = $(".show").map(function(){return $(this).attr("src");}).get();
+
 $('.show').click(function() {
     $('body').css('overflowY', 'hidden');
     $(".viewing").css("display", "flex");
 
-    if(processImg[$(this).index('.show')] == "../../00_assets/projects/cases/evidence/tha/pt1.gif"){
-        $("#zoom").css("height", "80vh");
-        $("#zoom").css("width", "auto");
-        $("#zoom").css("border-radius", "50px");
-    }else{
-        $("#zoom").css("width", "85vw");
-        $("#zoom").css("height", "auto");
-        $("#zoom").css("border-radius", "0px");
+    let imgIndex = $(".show").index(this);
+    let imgSrc = processImg[imgIndex];
+    let zoomImg = $("#zoom");
+
+    // Προεπιλεγμένες τιμές
+    let width = "auto";
+    let height = "auto";
+    let maxWidth = "85vw"; 
+    let maxHeight = "85vh"; 
+    let borderRadius = "0px";
+
+    // Έλεγχος με βάση τις κλάσεις της εικόνας
+    if ($(this).hasClass("subshow")) {
+        maxWidth = "80vw";  
+    }
+    if ($(this).hasClass("storyboard-img")) {
+        maxWidth = "70vw";  
+    }
+    if ($(this).hasClass("lofi-img")) {
+        maxHeight = "90vh";  
+    }
+    if ($(this).hasClass("lofi-gif") || $(this).hasClass("hifi-gif")) {
+        maxWidth = "90vw";
+        maxHeight = "95vh";
+        borderRadius = "25px";
+    }
+    if ($(this).hasClass("hifi-gif")) {
+        borderRadius = "25px";
+        maxWidth = "100vw";
+        maxHeight = "98vh";
     }
 
-    $("#zoom").attr("src",processImg[$(this).index('.show')]);
+    // **ΝΕΟ: Ρύθμιση για τις συγκεκριμένες εικόνες χωρίς παραμόρφωση**
+    if (imgSrc.includes("digital 1") || imgSrc.includes("digital 2") || 
+        imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
+        maxHeight = "95vh"; // Περιορίζουμε το ύψος χωρίς να αλλοιώνουμε την εικόνα
+        maxWidth = "auto";  // Το αφήνουμε αυτόματο για να μην τραβιέται
+    }
+
+    // Εφαρμογή των ρυθμίσεων
+    zoomImg.css({
+        "width": width,
+        "height": height,
+        "max-width": maxWidth,
+        "max-height": maxHeight,
+        "border-radius": borderRadius
+    });
+
+    // Ενημέρωση της εικόνας
+    zoomImg.attr("src", imgSrc);
 });
+
 $(".viewing").click(() => {
     $('body').css('overflowY', 'auto');
     $(".viewing").css("display", "none");
 });
+
+
 
