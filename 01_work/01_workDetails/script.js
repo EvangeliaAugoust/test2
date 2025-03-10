@@ -35,6 +35,8 @@ function chat(){
 }
 chat();
 
+
+// ΖΟΥΜ ΚΑΘΕ ΕΙΚΟΝΑΣ
 const processImg = $(".show").map(function(){return $(this).attr("src");}).get();
 
 $('.show').click(function() {
@@ -98,5 +100,37 @@ $(".viewing").click(() => {
     $(".viewing").css("display", "none");
 });
 
+// ΑΝΙΜΑΤΙΟΝ ΓΙΑ ΚΑΘΕ ΤΙΤΛΟ. Επιλέγουμε όλα τα στοιχεία με την κλάση "label"
+const labels = document.querySelectorAll(".label");
+let observedLabels = new Set(); // Set για να θυμόμαστε ποια έχουν ήδη αναπαραχθεί
 
+labels.forEach(label => {
+    const fullText = label.textContent; // Παίρνουμε το πλήρες κείμενο
+    label.textContent = fullText.charAt(0); // Αφήνουμε μόνο το πρώτο γράμμα
+    
+    function typeText() {
+        let index = 1; // Ξεκινάμε από το δεύτερο γράμμα
+        let interval = setInterval(() => {
+            label.textContent += fullText.charAt(index);
+            index++;
+
+            if (index >= fullText.length) {
+                clearInterval(interval);
+            }
+        }, 90); // Μείωσα την ταχύτητα στα 50ms για πιο γρήγορη εμφάνιση
+    }
+
+    // Χρησιμοποιούμε το Intersection Observer API
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && !observedLabels.has(label)) {
+                observedLabels.add(label); // Προσθέτουμε το στοιχείο στο Set για να μην ξαναπαίξει
+                typeText();
+                observer.unobserve(label); // Σταματάμε την παρακολούθηση μετά την πρώτη φορά
+            }
+        });
+    }, { threshold: 0.5 });
+
+    observer.observe(label); // Παρακολουθούμε το κάθε label
+});
 
