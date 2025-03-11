@@ -500,13 +500,3 @@ footer{
     width: 70%; /* Μικρότερη εικόνα */
     max-width: 400px; /* Όριο στο μέγιστο μέγεθος */
 }
-
-.storyboard-img {
-    width: 150vw; /* Μειώνουμε το μέγεθος σε σχέση με το πλάτος της οθόνης */
-    max-width: 800px; /* Όριο στο μέγιστο πλάτος */
-}
-
-.mshowstoryboard{
-    flex-direction: column;
-    align-items: left;
-}
