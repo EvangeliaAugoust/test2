@@ -488,3 +488,15 @@ footer{
     height: auto;
     cursor: pointer;
 }
+
+.hd {
+    max-width: 65vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.hp {
+    max-width: 35vw;
+    height: auto;
+    cursor: pointer;
+}

@@ -105,8 +105,17 @@ $('.show').click(function() {
         maxHeight = "100vh";
     }
 
-    // ΝΕΟ: Έλεγχος για την κλάση "zoomable"
     if ($(this).hasClass("paper")) {
+        maxWidth = "100vw"; // Μπορείς να αλλάξεις τις τιμές για το zoom όταν η εικόνα έχει την κλάση zoomable
+        maxHeight = "100vh";
+    }
+
+    if ($(this).hasClass("hd")) {
+        maxWidth = "100vw"; // Μπορείς να αλλάξεις τις τιμές για το zoom όταν η εικόνα έχει την κλάση zoomable
+        maxHeight = "100vh";
+    }
+
+    if ($(this).hasClass("hp")) {
         maxWidth = "100vw"; // Μπορείς να αλλάξεις τις τιμές για το zoom όταν η εικόνα έχει την κλάση zoomable
         maxHeight = "100vh";
     }
