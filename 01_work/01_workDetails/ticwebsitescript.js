@@ -112,9 +112,13 @@ $('.show').click(function() {
         maxHeight = "100vh";
     }
 
+    if ($(this).hasClass("digital")) {
+        maxWidth = "102vw";  // Αύξηση του πλάτους κατά το zoom
+        maxHeight = "128vh"; // Αύξηση του ύψους αλλά με περιορισμό
+    }
+    
     // **ΝΕΟ: Ρύθμιση για τις συγκεκριμένες εικόνες χωρίς παραμόρφωση**
-    if (imgSrc.includes("digital 1") || imgSrc.includes("digital 2") || 
-        imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
+    if (imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
         maxHeight = "95vh"; // Περιορίζουμε το ύψος χωρίς να αλλοιώνουμε την εικόνα
         maxWidth = "auto";  // Το αφήνουμε αυτόματο για να μην τραβιέται
     }
