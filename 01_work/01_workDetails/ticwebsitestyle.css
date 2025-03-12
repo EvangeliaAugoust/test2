@@ -455,25 +455,6 @@ footer{
 
 }
 
-.lofi-container {
-    display: flex; /* Βάζει την εικόνα και το GIF δίπλα-δίπλα */
-    justify-content: center; /* Τα κεντράρει */
-    align-items: center; /* Τα ευθυγραμμίζει κάθετα */
-    gap: 50px; /* Διάστημα μεταξύ τους */
-    flex-wrap: wrap; /* Αν η οθόνη είναι μικρή, τα κάνει stack */
-}
-
-.lofi-img {
-    width: 50%; /* Μικρότερη εικόνα */
-    max-width: 350px; /* Όριο στο μέγιστο μέγεθος */
-}
-
-.lofi-gif {
-    width: auto; /* Διατηρεί τις σωστές αναλογίες */
-    height: 530px; /* Καθορίζουμε ύψος για να μην είναι τεράστιο */
-    max-width: 450px; /* Όριο στο μέγιστο πλάτος */
-}
-
 .hifi-container {
     display: flex;
     justify-content: center;
@@ -496,14 +477,14 @@ footer{
     max-width: 450px;
 }
 
-.hifi-img {
-    width: 70%; /* Μικρότερη εικόνα */
-    max-width: 400px; /* Όριο στο μέγιστο μέγεθος */
+.digital {
+    max-width: 60vw;
+    height: auto;
+    cursor: pointer;
 }
 
-.digital {
-    max-width: 60vw; /* Μειώνουμε το αρχικό μέγεθος των εικόνων */
-    height: auto; /* Διατηρούμε τις αναλογίες */
-    cursor: pointer; /* Δείχνει ότι η εικόνα μπορεί να γίνει zoom */
-    align-items: left;
+.paper {
+    max-width: 45vw;
+    height: auto;
+    cursor: pointer;
 }
