@@ -93,10 +93,9 @@ $('.show').click(function() {
         maxWidth = "80vw";  
     }
 
-    if ($(this).hasClass("hifi-gif")) {
-        borderRadius = "25px";
+    if ($(this).hasClass("gif")) {
         maxWidth = "100vw";
-        maxHeight = "98vh";
+        maxHeight = "100vh";
     }
     
     // ΝΕΟ: Έλεγχος για την κλάση "zoomable"
