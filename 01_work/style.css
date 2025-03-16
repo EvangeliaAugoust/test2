@@ -237,6 +237,11 @@ nav{
 .caseCover:hover{
     transform: scale(102%);
 }
+.caseCover2 {
+    max-width: 45vw;
+    height: auto;
+    cursor: pointer;
+}
 .viewImage{
     position: absolute;
     top: 0;
