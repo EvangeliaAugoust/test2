@@ -259,7 +259,7 @@ ul {
     justify-content: space-evenly;
 }
 .subshow{
-    width: 50%;
+    width: 51%;
 }
 .trishow{
     width: 35%;
@@ -502,13 +502,6 @@ footer{
     cursor: pointer;
 }
 
-.caption {
-    font-size: 16px; /* Μπορείς να αυξήσεις την τιμή αν το θες μεγαλύτερο */
-}
-
-
-
-
 #role {
     line-height: 1.5; /* Μπορείς να το αυξήσεις αν θες περισσότερο κενό */
   }
@@ -538,3 +531,44 @@ footer{
     display: block;  /* Για να μην είναι inline */
     margin: 0;       /* Καμία αυτόματη στοίχιση */
 }
+
+.lofi-container {
+    display: flex; /* Βάζει την εικόνα και το GIF δίπλα-δίπλα */
+    justify-content: center; /* Τα κεντράρει */
+    align-items: center; /* Τα ευθυγραμμίζει κάθετα */
+    gap: 50px; /* Διάστημα μεταξύ τους */
+    flex-wrap: wrap; /* Αν η οθόνη είναι μικρή, τα κάνει stack */
+}
+
+.lofi-img {
+    width: 50%; /* Μικρότερη εικόνα */
+    max-width: 350px; /* Όριο στο μέγιστο μέγεθος */
+}
+
+.lofi-gif {
+    width: auto; /* Διατηρεί τις σωστές αναλογίες */
+    height: 530px; /* Καθορίζουμε ύψος για να μην είναι τεράστιο */
+    max-width: 450px; /* Όριο στο μέγιστο πλάτος */
+}
+
+.hifi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Επιτρέπει το σκρολάρισμα */
+    overflow-y: hidden; /* Αποτρέπει κάθετο σκρολάρισμα μέσα στην ίδια την container */
+    -ms-overflow-style: none; /* Αφαίρεση του scroll bar σε Internet Explorer */
+    scrollbar-width: none; /* Αφαίρεση του scroll bar σε Firefox */
+}
+
+.hifi-container::-webkit-scrollbar {
+    display: none; /* Αφαίρεση του scroll bar σε Webkit browsers (Chrome, Safari, Edge) */
+}
+
+.hifi-gif {
+    width: auto;
+    height: 530px;
+}
+

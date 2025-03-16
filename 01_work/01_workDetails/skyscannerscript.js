@@ -93,9 +93,18 @@ $('.show').click(function() {
         maxWidth = "80vw";  
     }
 
-    if ($(this).hasClass("gif")) {
+    if ($(this).hasClass("lofi-img")) {
+        maxHeight = "90vh";  
+    }
+    if ($(this).hasClass("lofi-gif") || $(this).hasClass("hifi-gif")) {
+        maxWidth = "90vw";
+        maxHeight = "95vh";
+        borderRadius = "25px";
+    }
+    if ($(this).hasClass("hifi-gif")) {
+        borderRadius = "25px";
         maxWidth = "100vw";
-        maxHeight = "100vh";
+        maxHeight = "98vh";
     }
     
     // ΝΕΟ: Έλεγχος για την κλάση "zoomable"
@@ -127,6 +136,13 @@ $('.show').click(function() {
     if ($(this).hasClass("digital")) {
         maxWidth = "102vw";  // Αύξηση του πλάτους κατά το zoom
         maxHeight = "128vh"; // Αύξηση του ύψους αλλά με περιορισμό
+    }
+
+    // **ΝΕΟ: Ρύθμιση για τις συγκεκριμένες εικόνες χωρίς παραμόρφωση**
+    if (imgSrc.includes("sitemap") || imgSrc.includes("cm") || 
+        imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
+        maxHeight = "100vh"; // Περιορίζουμε το ύψος χωρίς να αλλοιώνουμε την εικόνα
+        maxWidth = "auto";  // Το αφήνουμε αυτόματο για να μην τραβιέται
     }
 
     // Εφαρμογή των ρυθμίσεων
