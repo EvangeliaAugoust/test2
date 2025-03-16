@@ -479,7 +479,7 @@ footer{
 }
 
 .digital {
-    max-width: 60vw;
+    max-width: 100vw;
     height: auto;
     cursor: pointer;
 }
@@ -570,5 +570,21 @@ footer{
 .hifi-gif {
     width: auto;
     height: 530px;
+}
+
+.viewing {
+    display: none; /* Κρύβει το viewing αρχικά */
+    justify-content: center;
+    overflow-y: auto; /* Επιτρέπει scroll για να βλέπει όλη την εικόνα */
+    height: 100vh; /* Ύψος όσο η οθόνη */
+}
+
+#zoom {
+
+    align-self: flex-start; /* Βάζει την εικόνα στην κορυφή */
+}
+
+body {
+    cursor: default; /* Απενεργοποιεί το zoom cursor όταν δεν έχει επιλεγεί εικόνα */
 }
 
