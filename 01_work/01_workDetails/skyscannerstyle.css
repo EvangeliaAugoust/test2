@@ -506,6 +506,9 @@ footer{
     font-size: 16px; /* Μπορείς να αυξήσεις την τιμή αν το θες μεγαλύτερο */
 }
 
+
+
+
 #role {
     line-height: 1.5; /* Μπορείς να το αυξήσεις αν θες περισσότερο κενό */
   }
@@ -513,4 +516,25 @@ footer{
 #duration {
     line-height: 1.5; /* Μπορείς να το αυξήσεις αν θες περισσότερο κενό */
   }
-  
+
+.quote-container {
+    font-size: 23px; 
+    font-weight: 550; 
+    color: #FC8183; 
+    line-height: 1.6 !important;
+    max-width: 700px; 
+    word-wrap: break-word;
+}
+
+.cv {
+    max-width: 59vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.pr {
+    max-width: 71vw;
+    height: auto;
+    display: block;  /* Για να μην είναι inline */
+    margin: 0;       /* Καμία αυτόματη στοίχιση */
+}

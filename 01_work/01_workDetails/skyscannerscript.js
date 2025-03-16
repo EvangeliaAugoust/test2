@@ -119,6 +119,11 @@ $('.show').click(function() {
         maxHeight = "100vh";
     }
 
+    if ($(this).hasClass("cv")) {
+        maxWidth = "100vw"; // Μπορείς να αλλάξεις τις τιμές για το zoom όταν η εικόνα έχει την κλάση zoomable
+        maxHeight = "100vh";
+    }
+
     if ($(this).hasClass("digital")) {
         maxWidth = "102vw";  // Αύξηση του πλάτους κατά το zoom
         maxHeight = "128vh"; // Αύξηση του ύψους αλλά με περιορισμό
