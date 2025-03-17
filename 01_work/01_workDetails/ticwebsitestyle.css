@@ -269,7 +269,6 @@ ul {
     border-radius: 20px;
 }
 
-
 span.subhead{
     text-align: left;
 }
@@ -478,14 +477,14 @@ footer{
     max-height: 530px; /* Προαιρετικό όριο ύψους */
 }
 
-.digital {
-    max-width: 60vw;
+.paper {
+    max-width: 45vw;
     height: auto;
     cursor: pointer;
 }
 
-.paper {
-    max-width: 45vw;
+.digital {
+    max-width: 60vw;
     height: auto;
     cursor: pointer;
 }
