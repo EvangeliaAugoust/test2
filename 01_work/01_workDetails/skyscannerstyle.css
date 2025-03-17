@@ -258,9 +258,6 @@ ul {
     display: flex;
     justify-content: space-evenly;
 }
-.subshow{
-    width: 51%;
-}
 .trishow{
     width: 35%;
 }
@@ -308,11 +305,16 @@ span.subhead{
 }
 .set li{
     all: unset;
-    display: flex;
+    display: block; /* Αντικατάσταση του flex με block για σωστή εμφάνιση */
     flex-direction: column;    
     cursor:auto;
     line-height: 200%;
 }
+
+.set li strong {
+    font-weight: 600; /* Πιο ελαφρύ bold */
+}
+
 
 /* footer */
 footer{
@@ -455,51 +457,20 @@ footer{
 
 }
 
-.hifi-container {
-    display: flex;
+.viewing {
+    display: none; /* Κρύβει το viewing αρχικά */
     justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Επιτρέπει το σκρολάρισμα */
-    overflow-y: hidden; /* Αποτρέπει κάθετο σκρολάρισμα μέσα στην ίδια την container */
-    -ms-overflow-style: none; /* Αφαίρεση του scroll bar σε Internet Explorer */
-    scrollbar-width: none; /* Αφαίρεση του scroll bar σε Firefox */
+    overflow-y: auto; /* Επιτρέπει scroll για να βλέπει όλη την εικόνα */
+    height: 100vh; /* Ύψος όσο η οθόνη */
 }
 
-.hifi-container::-webkit-scrollbar {
-    display: none; /* Αφαίρεση του scroll bar σε Webkit browsers (Chrome, Safari, Edge) */
+#zoom {
+
+    align-self: flex-start; /* Βάζει την εικόνα στην κορυφή */
 }
 
-.gif {
-    width: 100%; /* Το GIF θα προσαρμόζεται στο container του */
-    max-width: 750px; /* Μέγιστο πλάτος */
-    height: auto; /* Αυτόματο ύψος για διατήρηση αναλογιών */
-    max-height: 530px; /* Προαιρετικό όριο ύψους */
-}
-
-.digital {
-    max-width: 100vw;
-    height: auto;
-    cursor: pointer;
-}
-
-.paper {
-    max-width: 45vw;
-    height: auto;
-    cursor: pointer;
-}
-
-.hd {
-    max-width: 58vw;
-    height: auto;
-    cursor: pointer;
-}
-
-.hp {
-    max-width: 35vw;
-    height: auto;
-    cursor: pointer;
+body {
+    cursor: default; /* Απενεργοποιεί το zoom cursor όταν δεν έχει επιλεγεί εικόνα */
 }
 
 #role {
@@ -513,7 +484,7 @@ footer{
 .quote-container {
     font-size: 23px; 
     font-weight: 550; 
-    color: #FC8183; 
+    color: #0951A4; 
     line-height: 1.6 !important;
     max-width: 700px; 
     word-wrap: break-word;
@@ -532,23 +503,28 @@ footer{
     margin: 0;       /* Καμία αυτόματη στοίχιση */
 }
 
-.lofi-container {
-    display: flex; /* Βάζει την εικόνα και το GIF δίπλα-δίπλα */
-    justify-content: center; /* Τα κεντράρει */
-    align-items: center; /* Τα ευθυγραμμίζει κάθετα */
-    gap: 50px; /* Διάστημα μεταξύ τους */
-    flex-wrap: wrap; /* Αν η οθόνη είναι μικρή, τα κάνει stack */
+.subshow{
+    width: 51%;
 }
 
-.lofi-img {
-    width: 50%; /* Μικρότερη εικόνα */
-    max-width: 350px; /* Όριο στο μέγιστο μέγεθος */
+.paper {
+    max-width: 45vw;
+    height: auto;
+    cursor: pointer;
 }
 
-.lofi-gif {
-    width: auto; /* Διατηρεί τις σωστές αναλογίες */
-    height: 530px; /* Καθορίζουμε ύψος για να μην είναι τεράστιο */
-    max-width: 450px; /* Όριο στο μέγιστο πλάτος */
+.digital {
+    max-width: 100vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.example {
+    width: 90%;  /* Καταλαμβάνει όλο το διαθέσιμο πλάτος */
+    max-width: none; /* Καμία μέγιστη τιμή που να περιορίζει το μέγεθος */
+    height: auto;
+    display: block; 
+    margin: 0 auto;  /* Κεντράρισμα εάν το parent είναι μεγαλύτερο */
 }
 
 .hifi-container {
@@ -572,19 +548,11 @@ footer{
     height: 530px;
 }
 
-.viewing {
-    display: none; /* Κρύβει το viewing αρχικά */
-    justify-content: center;
-    overflow-y: auto; /* Επιτρέπει scroll για να βλέπει όλη την εικόνα */
-    height: 100vh; /* Ύψος όσο η οθόνη */
+/* if its needed
+.gif {
+    width: 100%; /* Το GIF θα προσαρμόζεται στο container του 
+    max-width: 750px; /* Μέγιστο πλάτος 
+    height: auto; /* Αυτόματο ύψος για διατήρηση αναλογιών 
+    max-height: 530px; /* Προαιρετικό όριο ύψους 
 }
-
-#zoom {
-
-    align-self: flex-start; /* Βάζει την εικόνα στην κορυφή */
-}
-
-body {
-    cursor: default; /* Απενεργοποιεί το zoom cursor όταν δεν έχει επιλεγεί εικόνα */
-}
-
+*/
