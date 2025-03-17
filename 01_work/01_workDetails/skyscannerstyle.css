@@ -457,6 +457,27 @@ footer{
 
 }
 
+.hifi-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: nowrap;
+    overflow-x: auto; /* Επιτρέπει το σκρολάρισμα */
+    overflow-y: hidden; /* Αποτρέπει κάθετο σκρολάρισμα μέσα στην ίδια την container */
+    -ms-overflow-style: none; /* Αφαίρεση του scroll bar σε Internet Explorer */
+    scrollbar-width: none; /* Αφαίρεση του scroll bar σε Firefox */
+}
+
+.hifi-container::-webkit-scrollbar {
+    display: none; /* Αφαίρεση του scroll bar σε Webkit browsers (Chrome, Safari, Edge) */
+}
+
+.hifi-gif {
+    width: auto;
+    height: 530px;
+}
+
 .viewing {
     display: none; /* Κρύβει το viewing αρχικά */
     justify-content: center;
@@ -525,27 +546,6 @@ body {
     height: auto;
     display: block; 
     margin: 0 auto;  /* Κεντράρισμα εάν το parent είναι μεγαλύτερο */
-}
-
-.hifi-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    flex-wrap: nowrap;
-    overflow-x: auto; /* Επιτρέπει το σκρολάρισμα */
-    overflow-y: hidden; /* Αποτρέπει κάθετο σκρολάρισμα μέσα στην ίδια την container */
-    -ms-overflow-style: none; /* Αφαίρεση του scroll bar σε Internet Explorer */
-    scrollbar-width: none; /* Αφαίρεση του scroll bar σε Firefox */
-}
-
-.hifi-container::-webkit-scrollbar {
-    display: none; /* Αφαίρεση του scroll bar σε Webkit browsers (Chrome, Safari, Edge) */
-}
-
-.hifi-gif {
-    width: auto;
-    height: 530px;
 }
 
 /* if its needed
