@@ -114,8 +114,8 @@ $('.show').click(function() {
     }
 
     if ($(this).hasClass("hifi-gif")) {
-        maxWidth = "90vw";
-        maxHeight = "95vh";
+        maxWidth = "100vw";
+        maxHeight = "100vh";
         borderRadius = "25px";
     }
 
