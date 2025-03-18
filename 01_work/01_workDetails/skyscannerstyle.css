@@ -520,6 +520,12 @@ body {
     word-wrap: break-word;
 }
 
+/* Υπογράμμιση και ορατότητα μόνο για το συγκεκριμένο a */
+a[href="#current-app-issues"] {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
 .cv {
     max-width: 59vw;
     height: auto;
@@ -555,4 +561,8 @@ body {
     height: auto;
     display: block; 
     margin: 0 auto;  /* Κεντράρισμα εάν το parent είναι μεγαλύτερο */
+}
+
+.pcaption {
+    font-size: 16px; /* Μπορείς να αυξήσεις την τιμή αν το θες μεγαλύτερο */
 }

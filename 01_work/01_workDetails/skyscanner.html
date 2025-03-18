@@ -53,7 +53,7 @@
         <small class="subhead">Role</small>
         <p id="role">UX/UI Design<br>Content Strategist</p>    
         <small class="subhead">Tool</small>
-        <p id="tool">Figma, Photopea</p>  
+        <p id="tool">Figma, Photopea, FFmpeg</p>  
         <small class="subhead">Duration</small>  
         <p id="duration">February 2025<br>2 Days</p>
     </div>
@@ -66,10 +66,10 @@
             <p>
                 Skyscanner is a popular flight search engine that allows users to find and compare airfare across multiple airlines. 
                 As someone who frequently uses this app for trip planning, I wanted to explore potential improvements in its <b>user 
-                    experience and interface,</b> focusing on the journey from <b>the homepage to the flight details page.</b>
+                experience and interface,</b> focusing on the journey from <b>the homepage to the flight details page.</b>
             </p>
             <p class="quote-container">
-                ❛❛ Skyscanner app is used by millions of user. To redesign something that that is already have a existing user base is itself is a challenge.
+                ❛❛ Skyscanner app is used by millions of user. To redesign something that is already have a existing user base is itself is a challenge.
             </p>
         </div>
         <img class="show cv" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/cover.png" alt="">
@@ -79,20 +79,22 @@
     <div class="stage">
         <div class="label">Research</div>
         <div class="desc">
-            <p>With limited time following a typical design process was challenge. When it came to user research I could not do more. But I did talk to some 
+            <p>With limited time following a typical design process was a challenge. When it came to user research I could not do more. But I did talk to some 
                 friends and asked their existing experience of using Skyscanner app and their pain-points.
             </p>
-            <p>I then began with careful observation of each screen, completing the desired task, going back and forward, taking notes on my initial thoughts 
-                like what's missing and what can be done to make user experience more intuitive. My goal was to refine the <b>clarity, hierarchy, and efficiency 
-                of the experience</b> while keeping familiar patterns intact.  </p>
+            <p id="current-app-issues">
+                I then began with careful observation of each screen, completing the desired task, going back and forward, taking notes on my initial thoughts
+                like what's missing and what can be done to make user experience more intuitive. My goal was to refine the <b>clarity, hierarchy, and efficiency
+                of the experience</b> while keeping familiar patterns intact.
+            </p>
             <br/>
-            <span class="subhead"><p>Problems and Initial Findings</p></span>
+            <span class="subhead"><p>Current App Issues & Initial Findings</p></span>            
             <p>
             <ul class="set">
                 <li><strong>Homepage</strong></li>
                 <ul>
                     <li>&bullet; Lack of a clear Call-to-Action (CTA) for immediate flight searches.</li>
-                    <li>&bullet; Distracting elements like cards and oversized ads shift focus away from core functionality.</li>
+                    <li>&bullet; Cluttered with oversized ads and extra cards, distracting from the main function.</li>
                 </ul>
                 <br/>
                 <li><strong>Explore Page</strong></li>
@@ -109,19 +111,19 @@
                 <li><strong>Flights Page</strong></li>
                 <ul>
                     <li>&bullet; Filters are too broad, making it harder to refine searches.</li>
-                    <li>&bullet; Key flight details are insufficient.</li>
+                    <li>&bullet; Important flight details are missing.</li>
                 </ul>
                 <br/>
                 <li><strong>Details Page</strong></li>
                 <ul>
-                    <li>&bullet; Booking providers list lacks sorting & filtering, making it difficult to compare options efficiently.</li>
-                    <li>&bullet; Limited information on booking providers.</li>
+                    <li>&bullet; No sorting or filtering for booking providers, making comparisons difficult.</li>
+                    <li>&bullet; Limited information about booking providers.</li>
                 </ul>
             </ul>
         </p>
         <br/>
         <span class="subhead"><p>UX Principles</p></span>
-        <p>Throughout the design process, I applied key UX principles, particularly Fitts's Law and Hick’s Law, to enhance usability and efficiency.</p>
+        <p>Throughout the design process, I applied the key UX principles, particularly Fitts's Law and Hick’s Law, to enhance usability and efficiency.</p>
         <img class="pr" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/uxpr.png" alt="">
         </div>
         <span id="wr"></span>
@@ -130,9 +132,8 @@
     <div class="stage">
         <div class="label">Wireframing</div>
         <div class="desc">
-        <p>With a focus on improving usability and addressing key issues, I began structuring the app’s information architecture and layout through wireframing. 
-        Starting with rough sketches, I iterated on ideas to enhance clarity and efficiency. These wireframes <b>helped visualize essential improvements</b> while 
-        maintaining familiar patterns for a seamless user experience.</p>
+        <p>I started by organizing <b>the app’s structure and layout,</b> focusing on improving usability and solving key issues. Beginning with rough sketches, 
+            I refined ideas to make the experience clearer, keeping familiar patterns for a smooth user experience.</p>
         <span class="subhead"><p>Information Architecture</p></span>
         <div class="mshow">
             <img class="show subshow" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/sitemap.png" alt="">
@@ -147,6 +148,8 @@
         <br/>
         <br/>
         <span class="subhead"><p>Digital Wireframes</span>
+        <br/>
+        <br/>
         <img class="show digital" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/dw.png" alt="">         
         </div>
         <span id="ui"></span>
@@ -156,7 +159,7 @@
         <div class="label">User Interface</div>
         <div class="desc">
             <span class="subhead"><p>Key Improvements</p></span>
-            <p>Based on identified issues, here are the main enhancements:</p>
+            <p>Based on <a href="#current-app-issues">the current app issues</a> we identified and the insights we gathered from wireframing, <b>I made the following improvements:</b></p>
             <ul class="set">
                 <li>&bullet; <strong>Clearer CTA & more efficient homepage</strong> – The design of the flight search form makes it more prominent on the homepage now, providing a more intuitive experience.</li>
                 <li>&bullet; <strong>The updated Explore area</strong> — "Explore Everywhere" has become "Great Flight Deals Worldwide" and contains a carousel, making offer browsing simpler.</li>
@@ -164,16 +167,14 @@
                 <li>&bullet; <strong>Improved booking provider section</strong> – Added sorting as well as filtering options ("Best Reviews", "Cheapest"), along with supplementary details regarding each provider, like customer support availability and baggage policies.</li>
             </ul>
             <p>
-                The current app, <i>as an example,</i> did not have a special <strong>Call-to-Action (CTA)</strong> on the homepage regarding prompt flight searches. 
-                Users had to click on the <strong>'Flights'</strong> button simply to access the <strong>search form</strong>, as seen in the picture below. 
-                I rendered the <strong>booking process</strong> appreciably faster and markedly more intuitive through placing the <strong>flight search</strong> squarely 
-                on the homepage, thereby creating a <strong>clear call to action</strong> and substantially simplifying the <strong>flight booking flow</strong>.
+                In the current app, <i>as an example,</i> there was no clear Call-to-Action (CTA) for <strong>quick flight searches</strong> on the homepage. Users had to click the 'Flights' button 
+                just to access the search form. By <strong>placing the search directly on the homepage,</strong> I made the booking process faster and more intuitive.
             </p>
             <img class="show example" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/example.png" alt="">
         </div>
         <div class="desc">
             <span class="subhead"><p>Mockups</p></span>
-            <p>Final mockups showcasing the refined user interface after implementing key improvements.</p>
+            <p>Final mockups showing the updated design after applying the key improvements.</p>
             <img class="show digital" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/mockups.png" alt=""> 
         </div>
         <span id="fp"></span>
@@ -182,13 +183,13 @@
     <div class="stage">
         <div class="label">Final Product</div>
         <div class="desc">
-            <p>The final product of this project is a clickable high-fidelity prototype hosted through Figma's prototype feature.</p>
+            <p>The final product of this project is <b>a clickable high-fidelity prototype</b> hosted through Figma's prototype feature.</p>
         </div>
         <div class="hifi-container">
             <img class="show hifi-gif" draggable="false" src="../../00_assets/projects/cases/evidence/skyscanner/gif.gif" alt="">
         </div>
         <br/>
-        <small class="caption">Demo clickable prototype <a href="https://www.figma.com/proto/uZ0AR45kfJ0vHoCWLYKjIp/Skyscanner-Mobile-App---Redesign?node-id=5140-5734&t=0fDBlK4m3G3qDjev-0&scaling=scale-down&content-scaling=fixed&page-id=5140%3A3013&starting-point-node-id=5140%3A5734" target="_blank" class="elink">here</a>.</small>
+        <small class="pcaption">Demo clickable prototype <a href="https://www.figma.com/proto/uZ0AR45kfJ0vHoCWLYKjIp/Skyscanner-Mobile-App---Redesign?node-id=5140-5734&t=0fDBlK4m3G3qDjev-0&scaling=scale-down&content-scaling=fixed&page-id=5140%3A3013&starting-point-node-id=5140%3A5734" target="_blank" class="elink">here</a>.</small>
         <span id="cn"></span>
     </div>
 
@@ -205,7 +206,7 @@
             </p>
             
             <p class="quote-container">
-                ❛❛ Superb design is not exclusively concerning incorporating characteristics—it is regarding improving the experience to cause each individual phase to feel streamlined.
+                ❛❛ Superb design isn’t just about adding features—it’s about enhancing the experience and making every step feel seamless.
             </p>
         </div>
     </div>
