@@ -454,6 +454,15 @@ footer{
 
 }
 
+.quote-container {
+    font-size: 23px; 
+    font-weight: 550; 
+    color: #C33948; 
+    line-height: 1.6 !important;
+    max-width: 800px; 
+    word-wrap: break-word;
+}
+
 .hifi-container {
     display: flex;
     justify-content: center;

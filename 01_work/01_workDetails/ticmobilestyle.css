@@ -443,6 +443,14 @@ footer{
 
 }
 
+.quote-container {
+    font-size: 23px; 
+    font-weight: 550; 
+    color: #C33948; 
+    line-height: 1.6 !important;
+    max-width: 700px; 
+    word-wrap: break-word;
+}
 
 .show{
     width: 60vw;

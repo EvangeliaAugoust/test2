@@ -478,6 +478,15 @@ footer{
     height: 530px;
 }
 
+/* if its needed
+.gif {
+    width: 100%; /* Το GIF θα προσαρμόζεται στο container του 
+    max-width: 750px; /* Μέγιστο πλάτος 
+    height: auto; /* Αυτόματο ύψος για διατήρηση αναλογιών 
+    max-height: 530px; /* Προαιρετικό όριο ύψους 
+}
+*/
+
 .viewing {
     display: none; /* Κρύβει το viewing αρχικά */
     justify-content: center;
@@ -547,12 +556,3 @@ body {
     display: block; 
     margin: 0 auto;  /* Κεντράρισμα εάν το parent είναι μεγαλύτερο */
 }
-
-/* if its needed
-.gif {
-    width: 100%; /* Το GIF θα προσαρμόζεται στο container του 
-    max-width: 750px; /* Μέγιστο πλάτος 
-    height: auto; /* Αυτόματο ύψος για διατήρηση αναλογιών 
-    max-height: 530px; /* Προαιρετικό όριο ύψους 
-}
-*/
