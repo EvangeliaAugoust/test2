@@ -184,7 +184,7 @@ ul {
 
 .goTo, #top {
     transition: .1s ease;
-    font-size: 0.9rem; /* ταιριάζει με το process */
+    font-size: 1.0rem; /* ταιριάζει με το process */
 }
 
 .goTo {
