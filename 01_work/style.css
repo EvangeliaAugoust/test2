@@ -140,11 +140,13 @@ nav{
     justify-content: center;
     align-items: center;
 }
+
+/*
 @keyframes swayBackground {
     0% { background-position: 0% 0%; }
     90% { background-position: 0.2% 0.2%; }
     100% { background-position: 0% 0%; }
-}
+}*/
 
 .whoDat {
     width: 50%;
