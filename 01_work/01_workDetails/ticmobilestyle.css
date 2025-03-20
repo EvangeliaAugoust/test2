@@ -517,3 +517,12 @@ footer{
     width: 70%; /* Μικρότερη εικόνα */
     max-width: 400px; /* Όριο στο μέγιστο μέγεθος */
 }
+
+@media screen and (max-width: 768px) {
+    .show, .storyboard-img, .lofi-img, .hifi-img, .lofi-gif, .hifi-gif {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+    }
+}
+
