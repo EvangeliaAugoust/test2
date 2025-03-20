@@ -1,4 +1,9 @@
 /*PROJECT CONTENT*/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 .pull{
     height:5vh;
     background-color: black;
