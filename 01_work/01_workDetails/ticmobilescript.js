@@ -37,9 +37,11 @@ chat();
 
 
 // ΖΟΥΜ ΚΑΘΕ ΕΙΚΟΝΑΣ
-const processImg = $(".show").map(function(){return $(this).attr("src");}).get();
+const processImg = $(".show").map(function () {
+    return $(this).attr("src");
+}).get();
 
-$('.show').click(function() {
+$('.show').click(function () {
     $('body').css('overflowY', 'hidden');
     $(".viewing").css("display", "flex");
 
@@ -50,19 +52,19 @@ $('.show').click(function() {
     // Προεπιλεγμένες τιμές
     let width = "auto";
     let height = "auto";
-    let maxWidth = "100vw"; 
-    let maxHeight = "100vh"; 
+    let maxWidth = "100vw";
+    let maxHeight = "100vh";
     let borderRadius = "0px";
 
     // Έλεγχος με βάση τις κλάσεις της εικόνας
     if ($(this).hasClass("subshow")) {
-        maxWidth = "80vw";  
+        maxWidth = "80vw";
     }
     if ($(this).hasClass("storyboard-img")) {
-        maxWidth = "70vw";  
+        maxWidth = "70vw";
     }
     if ($(this).hasClass("lofi-img")) {
-        maxHeight = "100vh";  
+        maxHeight = "100vh";
     }
     if ($(this).hasClass("lofi-gif") || $(this).hasClass("hifi-gif")) {
         maxWidth = "100vw";
@@ -75,10 +77,16 @@ $('.show').click(function() {
         maxHeight = "100vh";
     }
 
-    // **ΝΕΟ: Ρύθμιση για τις συγκεκριμένες εικόνες χωρίς παραμόρφωση**
     if (imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
-        maxHeight = "100vh"; // Περιορίζουμε το ύψος χωρίς να αλλοιώνουμε την εικόνα
-        maxWidth = "auto";  // Το αφήνουμε αυτόματο για να μην τραβιέται
+        maxHeight = "100vh";
+        maxWidth = "auto";
+    }
+
+    // **ΝΕΟ: Αν η οθόνη είναι μικρότερη από 768px (κινητό), αύξησε το zoom στα subshow & storyboard-img**
+    if (window.innerWidth <= 768) {
+        if ($(this).hasClass("subshow") || $(this).hasClass("storyboard-img")) {
+            maxWidth = "100vw"; // Κάνει το zoom μεγαλύτερο στο κινητό
+        }
     }
 
     // Εφαρμογή των ρυθμίσεων
@@ -98,6 +106,7 @@ $(".viewing").click(() => {
     $('body').css('overflowY', 'auto');
     $(".viewing").css("display", "none");
 });
+
 
 // ΑΝΙΜΑΤΙΟΝ ΓΙΑ ΚΑΘΕ ΤΙΤΛΟ. Επιλέγουμε όλα τα στοιχεία με την κλάση "label"
 const labels = document.querySelectorAll(".label");
