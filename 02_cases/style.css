@@ -52,6 +52,11 @@ html, body {
     background-position: center 75%;
 
 }
+@media (max-width: 768px) { /* Προσαρμόζεις το όριο σύμφωνα με τις ανάγκες σου */
+    .projectLeft {
+        background-image: none !important;
+    }
+}
 .projectLeft, .projectRight{
     padding-top: 2%;
     padding-bottom: 2%;
