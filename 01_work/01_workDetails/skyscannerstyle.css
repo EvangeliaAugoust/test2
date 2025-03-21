@@ -580,3 +580,21 @@ a[href="#current-app-issues"] {
         height: auto;
     }
 }
+
+/* for mobile images to be center */
+@media screen and (max-width: 768px) { /* Εφαρμόζεται μόνο για κινητές συσκευές */
+    
+    .viewing {
+        display: none; /* Κρύβει το viewing αρχικά */
+        justify-content: center;
+        align-items: center; /* Κεντράρισμα στη μέση */
+    }
+
+    #zoom {
+        display: none;
+        margin: auto;
+        display: block;
+        max-width: 90vw;
+        max-height: 90vh;
+    }
+}
