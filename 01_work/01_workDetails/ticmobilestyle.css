@@ -518,7 +518,7 @@ footer{
     max-width: 400px; /* Όριο στο μέγιστο μέγεθος */
 }
 
-/* για mobile */
+/* for mobile */
 @media screen and (max-width: 768px) {
     .show, .storyboard-img, .lofi-img, .hifi-img, .lofi-gif, .hifi-gif {
         width: 100%;
