@@ -153,7 +153,7 @@ whoIAmElement.innerHTML = "W";
 // Δημιουργούμε το στοιχείο εικόνας
 const avatarImg = document.createElement("img");
 avatarImg.src = "../00_assets/me/avatar.png"; // Προσαρμόζεις τη διαδρομή
-avatarImg.style.width = "70px"; // Μεγαλώνουμε την εικόνα
+avatarImg.style.width = "65px"; // Μεγαλώνουμε την εικόνα
 avatarImg.style.verticalAlign = "middle";
 avatarImg.style.opacity = "0"; // Κρύβουμε την εικόνα αρχικά
 avatarImg.style.transition = "opacity 0.5s ease-in-out"; // Ομαλή εμφάνιση
