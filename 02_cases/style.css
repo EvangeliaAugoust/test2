@@ -348,7 +348,7 @@ nav{
 
 /*PROJECT HEADING*/
 .topContainer{
-    background-image: url(../00_assets/svgs/abstract.svg); 
+    background-image: url(../00_assets/svgs/ol.jpg); 
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -528,3 +528,71 @@ footer{
     }
 }
 
+/* Για 4 εικόνες */
+.projectView {
+    display: flex;
+    align-items: center; /* Κρατά το ύψος κεντραρισμένο με το διπλανό section */
+}
+
+.imageGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    height: auto;
+    align-items: center; /* Κεντράρει ΚΑΘΕΤΑ τις εικόνες μεταξύ τους */
+}
+
+.gridImg {
+    width: 100%;
+    object-fit: cover;
+    display: flex;
+    align-self: center;
+    transform: scale(1.1) translateY(20px);
+    opacity: 0;
+    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    border-radius: 4px;
+}
+
+.gridImg.visible {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+}
+
+/* Hover effect για κάθε εικόνα ξεχωριστά */
+.gridImg:hover {
+    transform: scale(1.045); /* Ελαφρύ zoom όταν ο χρήστης αφήσει τον κέρσορα πάνω */
+    transition: transform 0.3s ease-in-out;
+}
+
+.imageGrid img:nth-child(1) {
+    align-self: end;
+}
+
+.imageGrid img:nth-child(4) {
+    align-self: start; 
+}
+
+.projectLeft {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2\1rem; /* μείωσε το κενό ανάμεσα σε εικόνες και κείμενο */
+  }
+
+  .projectLeft {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  
+  
+  .projectView {
+    flex: 1.5;
+    max-width: 100%; /* κρατάει μικρό το κομμάτι των εικόνων */
+  }
+  
+  /* Το κομμάτι με το κείμενο */
+  .projectDetails {
+    flex: 2;
+    min-width: 300px;
+  }
+  

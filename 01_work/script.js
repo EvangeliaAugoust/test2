@@ -110,6 +110,7 @@ function typeIntroPart1() {
             introLetter++;
         } else {
             clearInterval(interval);
+            introElement.innerHTML += "<br>"; // Προσθέτει αλλαγή γραμμής μετά το "Hi! 👋"
             introLetter = 0;
             setTimeout(() => typeIntroPart2(partIndex), 1000); // Ξεκινάμε το επόμενο μέρος
         }
