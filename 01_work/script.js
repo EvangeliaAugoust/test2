@@ -4,6 +4,8 @@
 //     }
 // });
 
+
+
 let info = document.querySelector("#info");
 let joyce = document.querySelector("#joyce");
 const navbar = document.querySelector("nav");
@@ -136,5 +138,6 @@ function typeIntroPart2(index) {
     }, introSpeed);
 }
 
-// Ξεκινάμε το animation μόλις φορτώσει η σελίδα
-window.addEventListener("load", typeIntroPart1);
+// Το animation θα ξεκινήσει 0.5 δευτερόλεπτο μετά το πρώτο render της σελίδας
+setTimeout(typeIntroPart1, 500);
+
