@@ -144,7 +144,7 @@ html, body {
     letter-spacing: 1px;
 }
 
-.check {
+.space {
     line-height: 1.8; /* Δίνει λίγο κενό από το κείμενο */
 }
 
@@ -465,7 +465,23 @@ footer{
     40% {transform: translateY(0px);}
 }
 
-/* responsive */
+.underline-responsive {
+    display: none; /* Απόκρυψη στη βασική εκδοχή */
+  }
+
+/* responsive design */
+@media screen and (max-width: 1270px){
+.projectLeft {
+    background-image: url(../00_assets/svgs/backabout2.png);
+}
+.underline-normal {
+    display: none; /* Απόκρυψη της αρχικής εκδοχής */
+  }
+  .underline-responsive {
+    display: inline; /* Εμφάνιση της νέας εκδοχής */
+  }
+}
+
 /* Smaller */
 @media only screen and (max-width:858px){
     /* top */
@@ -554,7 +570,7 @@ footer{
     align-self: center;
     transform: scale(1.1) translateY(20px);
     opacity: 0;
-    transition: transform 1.0s ease-out, opacity 1.0s ease-out;
+    transition: transform 1.15s ease-out, opacity 1.15s ease-out;
     border-radius: 4px;
 }
 

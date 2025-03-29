@@ -11,7 +11,7 @@ body{
     margin: 0;
 
     height: fit-content;
-    background-image: url(../00_assets/svgs/bp.svg);
+    background-image: url(../00_assets/svgs/bp.png);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -174,10 +174,16 @@ nav{
     align-items: flex-end;
     justify-content: center;
 }
-#jz{
+#ea{
     font-family: "Marcellus SC", serif;
     font-size: 4em;
     margin: 0px;
+}
+.firstName, .lastName {
+    display: block;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
 }
 #meet h1, #followUp{
     font-weight: 500;
@@ -363,14 +369,23 @@ footer{
 @media screen and (max-width: 1270px){
     #more{
         text-align: center;
+        margin-top: -15px; /* Μειώνει το κενό ανεβάζοντας το κείμενο πιο κοντά στο όνομα */   
     }
+    .whoImg {
+        width: 46%;
+        margin-left: auto; 
+        margin-right: auto; 
+        display: block; /* Εξασφαλίζει ότι το margin εφαρμόζεται σωστά */
+    }
+
 }
+
 @media screen and (max-width:858px){
     .intro{
         flex-direction: column;
         height: 136vh;
     }
-    #jz{
+    #ea{
         font-size: 2.6em;
     }
     .whoImg, .whoDat{
@@ -448,7 +463,8 @@ footer{
     width: 110%; /* Ρυθμίζουμε το πλάτος ώστε να ταιριάζει στο τελικό κείμενο */
     margin: 10 auto; /* Κεντράρει οριζόντια το μπλοκ του κειμένου */
     display: block; /* Επιτρέπει το margin να δουλέψει σωστά */
-    white-space: pre-line; /* Διατηρεί τα line breaks που προσθέτουμε */
+    white-space: nowrap; /* Αποτρέπει το αυτόματο σπάσιμο γραμμής */
+    overflow-wrap: break-word; /* Για να σπάει σωστά αν χρειάζεται */
     visibility: hidden; /* Αρχικά κρύβουμε το κείμενο και το εμφανίζουμε με το JS */
 }
 

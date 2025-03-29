@@ -140,5 +140,5 @@ function typeIntroPart2(index) {
 }
 
 // Το animation θα ξεκινήσει 0.5 δευτερόλεπτο μετά το πρώτο render της σελίδας
-setTimeout(typeIntroPart1, 500);
+setTimeout(typeIntroPart1, 850);
 

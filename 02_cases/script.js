@@ -153,6 +153,19 @@ const observer = new IntersectionObserver(entries => {
 
 observer.observe(whoIAmElement);
 
+// Προσαρμόζουμε το μέγεθος του avatar ανάλογα με το πλάτος της οθόνης
+function adjustAvatarSize() {
+    if (window.innerWidth <= 1270) {
+        avatarImg.style.width = "53px"; // Μικρότερο avatar για μικρότερες οθόνες
+    } else {
+        avatarImg.style.width = "65px"; // Κανονικό μέγεθος avatar
+    }
+}
+
+// Εκτελείται όταν φορτώνει η σελίδα και όταν αλλάζει το μέγεθος της οθόνης
+window.addEventListener("load", adjustAvatarSize);
+window.addEventListener("resize", adjustAvatarSize);
+
 
 /* -------------------------------
    OLD CODE - in case we switch back to Who I Am Animation with Avatar Icon playing from the beginning 
