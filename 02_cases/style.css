@@ -516,6 +516,19 @@ footer{
       }
   }
   
+  @media screen and (max-width: 1000px) {
+    .projectLeft {
+        background-image: url(../00_assets/svgs/backabout2.png);
+    }
+    .underline-normal {
+        display: none !important;
+      }
+      .underline-responsive {
+        display: inline !important;
+        color: rgb(0, 236, 245); /* test style */
+      }
+  }
+
   @media screen and (max-width: 1536px) {
     .projectLeft {
         background-image: url(../00_assets/svgs/backabout2.png);
