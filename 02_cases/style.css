@@ -469,6 +469,27 @@ footer{
     display: none; /* Απόκρυψη στη βασική εκδοχή */
   }
 
+  @media (min-resolution: 1.25dppx) {
+    .underline-normal {
+      display: none;
+    }
+    .underline-responsive {
+      display: inline;
+      color: rgb(177, 228, 9); /* test style */
+    }
+  }
+  
+
+  @media (max-aspect-ratio: 16/9) {
+    .underline-normal {
+      display: none;
+    }
+    .underline-responsive {
+      display: inline;
+      color: rgb(17, 204, 82); /* test style */
+    }
+  }  
+
 /* responsive design */
 @media screen and (max-width: 1270px){
 .projectLeft {
@@ -481,6 +502,44 @@ footer{
     display: inline; /* Εμφάνιση της νέας εκδοχής */
   }
 }
+
+@media screen and (max-width: 1600px) {
+    .projectLeft {
+        background-image: url(../00_assets/svgs/backabout2.png);
+    }
+    .underline-normal {
+        display: none !important;
+      }
+      .underline-responsive {
+        display: inline !important;
+        color: rgb(136, 9, 255); /* test style */
+      }
+  }
+  
+  @media screen and (max-width: 1536px) {
+    .projectLeft {
+        background-image: url(../00_assets/svgs/backabout2.png);
+    }
+    .underline-normal {
+        display: none !important;
+      }
+      .underline-responsive {
+        display: inline !important;
+        color: red; /* test style */
+      }
+  }
+
+  @media screen and (width: 1536px) {
+    body::before {
+      content: "1600px QUERY ACTIVE";
+      color: white;
+      background: black;
+      padding: 4px;
+      position: fixed;
+      z-index: 9999;
+    }
+  }
+  
 
 /* Smaller */
 @media only screen and (max-width:858px){
