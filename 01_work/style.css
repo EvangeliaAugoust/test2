@@ -380,6 +380,20 @@ footer{
 
 }
 
+/* test it tommorow */
+@media screen and (width: 1536px) {
+    #more{
+        text-align: center;
+        margin-top: -15px; /* Μειώνει το κενό ανεβάζοντας το κείμενο πιο κοντά στο όνομα */   
+    }
+    .whoImg {
+        width: 46%;
+        margin-left: auto; 
+        margin-right: auto; 
+        display: block; /* Εξασφαλίζει ότι το margin εφαρμόζεται σωστά */
+    }
+  }
+
 @media screen and (max-width:858px){
     .intro{
         flex-direction: column;

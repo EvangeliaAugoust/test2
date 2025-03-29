@@ -156,7 +156,7 @@ observer.observe(whoIAmElement);
 // Προσαρμόζουμε το μέγεθος του avatar ανάλογα με το πλάτος της οθόνης
 function adjustAvatarSize() {
     if (window.innerWidth <= 1270) {
-        avatarImg.style.width = "53px"; // Μικρότερο avatar για μικρότερες οθόνες
+        avatarImg.style.width = "52px"; // Μικρότερο avatar για μικρότερες οθόνες
     } else {
         avatarImg.style.width = "65px"; // Κανονικό μέγεθος avatar
     }

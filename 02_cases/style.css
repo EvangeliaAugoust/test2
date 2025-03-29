@@ -465,84 +465,33 @@ footer{
     40% {transform: translateY(0px);}
 }
 
-.underline-responsive {
-    display: none; /* Απόκρυψη στη βασική εκδοχή */
-  }
-
-  @media (min-resolution: 1.25dppx) {
-    .underline-normal {
-      display: none;
-    }
-    .underline-responsive {
-      display: inline;
-      color: rgb(177, 228, 9); /* test style */
-    }
-  }
-  
-
-  @media (max-aspect-ratio: 16/9) {
-    .underline-normal {
-      display: none;
-    }
-    .underline-responsive {
-      display: inline;
-      color: rgb(17, 204, 82); /* test style */
-    }
-  }  
-
-/* responsive design */
+/* responsive design 
 @media screen and (max-width: 1270px){
 .projectLeft {
     background-image: url(../00_assets/svgs/backabout2.png);
 }
 .underline-normal {
-    display: none; /* Απόκρυψη της αρχικής εκδοχής */
+    display: none; // Απόκρυψη της αρχικής εκδοχής 
   }
   .underline-responsive {
-    display: inline; /* Εμφάνιση της νέας εκδοχής */
+    display: inline; // Εμφάνιση της νέας εκδοχής 
   }
-}
+}*/
 
-@media screen and (max-width: 1600px) {
-    .projectLeft {
-        background-image: url(../00_assets/svgs/backabout2.png);
-    }
-    .underline-normal {
-        display: none !important;
-      }
-      .underline-responsive {
-        display: inline !important;
-        color: rgb(136, 9, 255); /* test style */
-      }
-  }
-  
-  @media screen and (max-width: 1000px) {
-    .projectLeft {
-        background-image: url(../00_assets/svgs/backabout2.png);
-    }
-    .underline-normal {
-        display: none !important;
-      }
-      .underline-responsive {
-        display: inline !important;
-        color: rgb(0, 236, 245); /* test style */
-      }
-  }
+/* ενω στο html ειχα 
+<p class="space">
+                            I got into UX/UI design 
+                            <span class="highlight-animation">
+                              <span class="underline-animation">
+                                <span class="underline-normal">because I love turning ideas into seamless digital experiences.</span>
+                                <span class="underline-responsive">because I love turning ideas into digital experiences.</span>
+                              </span>
+                            </span>
+                            I've learned a lot by trying things out, experimenting and working on different projects.
+                        </p> */
 
-  @media screen and (max-width: 1536px) {
-    .projectLeft {
-        background-image: url(../00_assets/svgs/backabout2.png);
-    }
-    .underline-normal {
-        display: none !important;
-      }
-      .underline-responsive {
-        display: inline !important;
-        color: red; /* test style */
-      }
-  }
-
-  @media screen and (width: 1536px) {
+/* αυτο ειναι το μεγεθος οθονης m&e
+@media screen and (width: 1536px) {
     body::before {
       content: "1600px QUERY ACTIVE";
       color: white;
@@ -551,7 +500,7 @@ footer{
       position: fixed;
       z-index: 9999;
     }
-  }
+  }*/
   
 
 /* Smaller */
