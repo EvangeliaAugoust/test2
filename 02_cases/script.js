@@ -51,7 +51,6 @@ function chat(){
 }
 chat();
 
-// Typing animation
 // Typing animation για το "Evangelia Avgoustopoulou."
 const welcomeText = ["Evangelia Avgoustopoulou.", "Evangelia.", "Avgoustopoulou."];
 let welcomeElement = document.querySelector("#welcome");
@@ -93,25 +92,31 @@ function restartWelcome() {
 typeText(welcomeElement, welcomeText, welcomeIndex, welcomeLetter, restartWelcome);
 
 
-/* -------------------------------
-   OLD CODE - in case we switch back to who i am animation with avatar emoji
-   (with class "projectImg")
-----------------------------------
-// --- WHO I AM Animation (επανάληψη κάθε φορά που φέυγει απτήν οθόνη και με scroll detection) ---
-const whoIAmText = "ho I Am"; // Αφήνουμε έξω το πρώτο γράμμα "W"
+
+// Who I Am Animation with Avatar Icon and first not be playing the animation
+const whoIAmText = "ho I Am"; // Κείμενο χωρίς το 'W'
 let whoIAmElement = document.querySelector("#whoIAm");
 let whoIAmLetter = 0;
 let whoIAmSpeed = 200;
-let isAnimating = false; // Flag για να αποφεύγουμε επαναλήψεις όσο είναι ορατό
+let isAnimating = false;
+let hasFullyAppeared = false; // Αν έχει εμφανιστεί πλήρως στην αρχή
+let hasLeftView = false; // Αν έχει φύγει από το οπτικό πεδίο του χρήστη
 
-// Εμφανίζουμε το "W" από την αρχή
-whoIAmElement.innerHTML = "W";
+// Αρχικά εμφανίζουμε το κείμενο και το avatar χωρίς animation
+whoIAmElement.innerHTML = "Who I Am";
 
-// Συνάρτηση για να ξεκινήσει το animation
+// Δημιουργούμε το στοιχείο εικόνας (avatar)
+const avatarImg = document.createElement("img");
+avatarImg.src = "../00_assets/me/avatar.png"; // Διαδρομή εικόνας
+avatarImg.style.width = "65px"; // Μέγεθος avatar
+avatarImg.style.verticalAlign = "middle";
+avatarImg.style.marginLeft = "10px"; // Κενό μεταξύ κειμένου και εικόνας
+whoIAmElement.appendChild(avatarImg); // Προσθέτουμε την εικόνα αμέσως
+
 function typeWhoIAm() {
-    if (isAnimating) return; // Αν ήδη τρέχει animation, δεν το ξαναρχίζουμε
+    if (isAnimating) return;
     isAnimating = true;
-    whoIAmElement.innerHTML = "W"; // Reset το περιεχόμενο
+    whoIAmElement.innerHTML = "W"; // Ξεκινάμε μόνο με το "W"
     whoIAmLetter = 0;
 
     let interval = setInterval(() => {
@@ -121,26 +126,38 @@ function typeWhoIAm() {
         if (whoIAmLetter >= whoIAmText.length) {
             clearInterval(interval);
             setTimeout(() => {
-                isAnimating = false; // Επιτρέπουμε νέο animation αφού ολοκληρωθεί
-            }, 500);
+                whoIAmElement.appendChild(avatarImg); // Προσθέτουμε ξανά την εικόνα
+                isAnimating = false;
+            }, 300);
         }
     }, whoIAmSpeed);
 }
 
-// Χρησιμοποιούμε το Intersection Observer API
+// Χρησιμοποιούμε Intersection Observer API
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            typeWhoIAm(); // Εκκίνηση animation όταν το στοιχείο γίνει ορατό
+            if (hasLeftView) { 
+                typeWhoIAm(); // Αν έχει φύγει από την οθόνη και επιστρέψει, παίζει το animation
+                hasLeftView = false; // Μηδενίζουμε την τιμή για την επόμενη φορά
+            } else if (!hasFullyAppeared) {
+                hasFullyAppeared = true; // Σηματοδοτούμε ότι εμφανίστηκε στατικά την πρώτη φορά
+            }
+        } else {
+            if (hasFullyAppeared) {
+                hasLeftView = true; // Σηματοδοτούμε ότι έφυγε από το οπτικό πεδίο
+            }
         }
     });
-}, { threshold: 0.5 }); // Το animation ξεκινά όταν τουλάχιστον 50% του στοιχείου είναι ορατό
+}, { threshold: 0.5 });
 
-observer.observe(whoIAmElement); // Παρακολουθούμε το στοιχείο
-----------------------------------*/
+observer.observe(whoIAmElement);
 
 
-// Who I Am Animation with Avatar Icon
+/* -------------------------------
+   OLD CODE - in case we switch back to Who I Am Animation with Avatar Icon playing from the beginning 
+----------------------------------
+
 const whoIAmText = "ho I Am"; // Κείμενο χωρίς την εικόνα
 let whoIAmElement = document.querySelector("#whoIAm");
 let whoIAmLetter = 0;
@@ -191,79 +208,56 @@ const observer = new IntersectionObserver(entries => {
     });
 }, { threshold: 0.5 });
 
-observer.observe(whoIAmElement);
+observer.observe(whoIAmElement); */
+
 
 
 /* -------------------------------
-   OLD CODE - in case we switch back to single image layout
+   OLD CODE - in case we switch back to who i am animation without the avatar icon
    (with class "projectImg")
 ----------------------------------
+// --- WHO I AM Animation (επανάληψη κάθε φορά που φέυγει απτήν οθόνη και με scroll detection) ---
+const whoIAmText = "ho I Am"; // Αφήνουμε έξω το πρώτο γράμμα "W"
+let whoIAmElement = document.querySelector("#whoIAm");
+let whoIAmLetter = 0;
+let whoIAmSpeed = 200;
+let isAnimating = false; // Flag για να αποφεύγουμε επαναλήψεις όσο είναι ορατό
 
-// for only one picture
-document.querySelectorAll('.contact a img').forEach(img => {
-    img.addEventListener('click', function(event) {
-        event.stopPropagation(); // Σταματάει το click να επηρεάζει άλλα στοιχεία
-    });
-});
+// Εμφανίζουμε το "W" από την αρχή
+whoIAmElement.innerHTML = "W";
 
-document.querySelector('.projectLeft .projectImg').addEventListener('click', function(event) {
-    event.preventDefault(); // Σταματάει το redirect
-    event.stopPropagation(); // Δεν αφήνει το click να επηρεάσει άλλα στοιχεία
-});
+// Συνάρτηση για να ξεκινήσει το animation
+function typeWhoIAm() {
+    if (isAnimating) return; // Αν ήδη τρέχει animation, δεν το ξαναρχίζουμε
+    isAnimating = true;
+    whoIAmElement.innerHTML = "W"; // Reset το περιεχόμενο
+    whoIAmLetter = 0;
 
+    let interval = setInterval(() => {
+        whoIAmElement.innerHTML += whoIAmText[whoIAmLetter];
+        whoIAmLetter++;
 
-document.addEventListener("DOMContentLoaded", function () {
-    const highlightElements = document.querySelectorAll(".highlight-animation");
-    let currentIndex = 0;
-    let isAnimating = false;
-    let visibleIndexes = new Set();
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const index = Array.from(highlightElements).indexOf(entry.target);
-            
-            if (entry.isIntersecting) {
-                visibleIndexes.add(index);
-                if (!isAnimating && index === currentIndex) {
-                    startNextAnimation();
-                }
-            } else {
-                visibleIndexes.delete(index);
-            }
-        });
-    }, { threshold: 0.6 });
-
-    highlightElements.forEach(el => observer.observe(el));
-
-    function startNextAnimation() {
-        if (currentIndex >= highlightElements.length || !visibleIndexes.has(currentIndex)) return;
-
-        isAnimating = true;
-        let el = highlightElements[currentIndex];
-        let underline = el.querySelector(".underline-animation");
-
-        el.classList.add("highlight-active");
-
-        setTimeout(() => {
-            el.classList.remove("highlight-active");
-            el.classList.add("highlight-hide");
-
+        if (whoIAmLetter >= whoIAmText.length) {
+            clearInterval(interval);
             setTimeout(() => {
-                if (underline) {
-                    underline.classList.add("underline-active");
-                }
-                currentIndex++;
-                isAnimating = false;
+                isAnimating = false; // Επιτρέπουμε νέο animation αφού ολοκληρωθεί
+            }, 500);
+        }
+    }, whoIAmSpeed);
+}
 
-                // Αν υπάρχουν ήδη ορατές επόμενες προτάσεις, συνεχίζει αυτόματα
-                if (visibleIndexes.has(currentIndex)) {
-                    startNextAnimation();
-                }
-            }, 50);
-        }, 1500);
-    }
-});
-*/
+// Χρησιμοποιούμε το Intersection Observer API
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            typeWhoIAm(); // Εκκίνηση animation όταν το στοιχείο γίνει ορατό
+        }
+    });
+}, { threshold: 0.5 }); // Το animation ξεκινά όταν τουλάχιστον 50% του στοιχείου είναι ορατό
+
+observer.observe(whoIAmElement); // Παρακολουθούμε το στοιχείο
+----------------------------------*/
+
 
 // for 4 pictures
 document.querySelectorAll('.contact a img').forEach(img => {
@@ -345,3 +339,74 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(gridImages[0]); // Βάλε το observer μόνο στην 1η εικόνα
 });
 
+
+/* -------------------------------
+   OLD CODE - in case we switch back to single image layout
+   (with class "projectImg")
+----------------------------------
+
+// for only one picture
+document.querySelectorAll('.contact a img').forEach(img => {
+    img.addEventListener('click', function(event) {
+        event.stopPropagation(); // Σταματάει το click να επηρεάζει άλλα στοιχεία
+    });
+});
+
+document.querySelector('.projectLeft .projectImg').addEventListener('click', function(event) {
+    event.preventDefault(); // Σταματάει το redirect
+    event.stopPropagation(); // Δεν αφήνει το click να επηρεάσει άλλα στοιχεία
+});
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    const highlightElements = document.querySelectorAll(".highlight-animation");
+    let currentIndex = 0;
+    let isAnimating = false;
+    let visibleIndexes = new Set();
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const index = Array.from(highlightElements).indexOf(entry.target);
+            
+            if (entry.isIntersecting) {
+                visibleIndexes.add(index);
+                if (!isAnimating && index === currentIndex) {
+                    startNextAnimation();
+                }
+            } else {
+                visibleIndexes.delete(index);
+            }
+        });
+    }, { threshold: 0.6 });
+
+    highlightElements.forEach(el => observer.observe(el));
+
+    function startNextAnimation() {
+        if (currentIndex >= highlightElements.length || !visibleIndexes.has(currentIndex)) return;
+
+        isAnimating = true;
+        let el = highlightElements[currentIndex];
+        let underline = el.querySelector(".underline-animation");
+
+        el.classList.add("highlight-active");
+
+        setTimeout(() => {
+            el.classList.remove("highlight-active");
+            el.classList.add("highlight-hide");
+
+            setTimeout(() => {
+                if (underline) {
+                    underline.classList.add("underline-active");
+                }
+                currentIndex++;
+                isAnimating = false;
+
+                // Αν υπάρχουν ήδη ορατές επόμενες προτάσεις, συνεχίζει αυτόματα
+                if (visibleIndexes.has(currentIndex)) {
+                    startNextAnimation();
+                }
+            }, 50);
+        }, 1500);
+    }
+});
+*/

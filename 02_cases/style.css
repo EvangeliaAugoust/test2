@@ -144,6 +144,10 @@ html, body {
     letter-spacing: 1px;
 }
 
+.check {
+    line-height: 1.8; /* Δίνει λίγο κενό από το κείμενο */
+}
+
 /* Κλάση για την υπογράμμιση των φράσεων*/
 .underline-animation {
     display: inline-block;
@@ -550,7 +554,7 @@ footer{
     align-self: center;
     transform: scale(1.1) translateY(20px);
     opacity: 0;
-    transition: transform 0.6s ease-out, opacity 0.6s ease-out;
+    transition: transform 1.0s ease-out, opacity 1.0s ease-out;
     border-radius: 4px;
 }
 
