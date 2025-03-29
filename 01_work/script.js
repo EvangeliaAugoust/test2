@@ -106,15 +106,16 @@ introElement.style.visibility = "visible";
 
 // Πρώτο animation για "Hi!👋"
 function typeIntroPart1() {
+    introElement.innerHTML = "Hi! <span id='waveEmoji' style='opacity: 0;'>👋</span>";
     let interval = setInterval(() => {
-        if (introLetter < introPart1.length) { 
-            introElement.innerHTML += introPart1[introLetter];
+        if (introLetter < 3) { // Μόνο τα γράμματα "Hi!" πληκτρολογούνται
+            introElement.innerHTML = introPart1.slice(0, introLetter + 1) + " <span id='waveEmoji' style='opacity: 0;'>👋</span>";
             introLetter++;
         } else {
             clearInterval(interval);
-            introElement.innerHTML += "<br>"; // Προσθέτει αλλαγή γραμμής μετά το "Hi! 👋"
-            introLetter = 0;
-            setTimeout(() => typeIntroPart2(partIndex), 1000); // Ξεκινάμε το επόμενο μέρος
+            document.getElementById("waveEmoji").style.opacity = 1; // Εμφάνιση του emoji μετά το Hi!
+            introElement.innerHTML += "<br>";
+            setTimeout(() => typeIntroPart2(partIndex), 1000);
         }
     }, introSpeed);
 }
