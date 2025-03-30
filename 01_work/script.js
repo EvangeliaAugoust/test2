@@ -141,20 +141,3 @@ function typeIntroPart2(index) {
 
 // Το animation θα ξεκινήσει 0.5 δευτερόλεπτο μετά το πρώτο render της σελίδας
 setTimeout(typeIntroPart1, 850);
-
-
-
-// Λίστα με εικόνες που πρέπει να φορτωθούν πριν το loading
-const imagesToPreload = [
-    { selector: '.whoDat', url: "../00_assets/svgs/bf.png" },
-    { selector: '.imageZoom', url: "../00_assets/me/home.jpg" }
-];
-
-// Προφόρτωση και εφαρμογή των εικόνων
-imagesToPreload.forEach(image => {
-    const img = new Image();
-    img.src = image.url;
-    img.onload = function() {
-        document.querySelector(image.selector).style.backgroundImage = `url(${img.src})`;
-    };
-});
