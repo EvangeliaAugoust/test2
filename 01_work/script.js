@@ -139,5 +139,5 @@ function typeIntroPart2(index) {
     }, introSpeed);
 }
 
-// Το animation θα ξεκινήσει 0.5 δευτερόλεπτο μετά το πρώτο render της σελίδας
-setTimeout(typeIntroPart1, 850);
+// Το animation θα ξεκινήσει 1 δευτερόλεπτο μετά το πρώτο render της σελίδας
+setTimeout(typeIntroPart1, 1000);

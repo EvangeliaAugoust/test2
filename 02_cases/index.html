@@ -12,9 +12,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <!-- Preload and force-load background images early -->
     <link rel="preload" as="image" href="../00_assets/me/avatar.png">
     <link rel="preload" as="image" href="../00_assets/svgs/backabout.jpg">
     <link rel="preload" as="image" href="../00_assets/svgs/plants.png">
+    <img src="../00_assets/me/avatar.png" style="display: none;" loading="eager">
+    <img src="../00_assets/svgs/backabout.jpg" style="display: none;" loading="eager">
+    <img src="../00_assets/svgs/plants.png" style="display: none;" loading="eager">
 </head>
 <body>
     <nav>
