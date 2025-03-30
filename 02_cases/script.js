@@ -423,3 +423,12 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 */
+
+// for 4 pictures zoom in and zoom out the time
+document.querySelectorAll('.gridImg').forEach(img => {
+    img.addEventListener('transitionend', function(event) {
+        if (event.propertyName === "opacity") {
+            setTimeout(() => img.classList.add("hoverEffect"), 100); // Προσθέτει μικρή καθυστέρηση για σιγουριά
+        }
+    });
+});

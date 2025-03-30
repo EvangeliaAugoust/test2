@@ -143,7 +143,7 @@ function typeIntroPart2(index) {
 setTimeout(typeIntroPart1, 850);
 
 
-// images reload before the loading
+
 // Λίστα με εικόνες που πρέπει να φορτωθούν πριν το loading
 const imagesToPreload = [
     { selector: '.whoDat', url: "../00_assets/svgs/bf.png" },

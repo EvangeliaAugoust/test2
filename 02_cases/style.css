@@ -584,6 +584,7 @@ footer{
     align-items: center; /* Κεντράρει ΚΑΘΕΤΑ τις εικόνες μεταξύ τους */
 }
 
+/* Αρχική κατάσταση - εμφάνιση με animation */
 .gridImg {
     width: 100%;
     object-fit: cover;
@@ -591,19 +592,25 @@ footer{
     align-self: center;
     transform: scale(1.1) translateY(20px);
     opacity: 0;
-    transition: transform 1.15s ease-out, opacity 1.15s ease-out;
     border-radius: 4px;
 }
 
+/* Όταν γίνονται ορατές */
 .gridImg.visible {
     transform: scale(1) translateY(0);
     opacity: 1;
+    transition: transform 1.15s ease-out, opacity 1.15s ease-out; /* Πρώτη εμφάνιση */
 }
 
-/* Hover effect για κάθε εικόνα ξεχωριστά */
-.gridImg:hover {
-    transform: scale(1.045); /* Ελαφρύ zoom όταν ο χρήστης αφήσει τον κέρσορα πάνω */
-    transition: transform 0.3s ease-in-out;
+/* Hover effect */
+.gridImg.hoverEffect:hover {
+    transform: scale(1.045);
+    transition: transform 0.3s ease-in-out; /* Ομαλό zoom */
+}
+
+/* Όταν ο χρήστης φεύγει, το ξεζουμ γίνεται γρήγορα */
+.gridImg.hoverEffect:not(:hover) {
+    transition: transform 0.2s ease-out;
 }
 
 .imageGrid img:nth-child(1) {

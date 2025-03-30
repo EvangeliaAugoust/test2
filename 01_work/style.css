@@ -365,6 +365,7 @@ footer{
 
 
 @media screen and (max-width: 1270px),
+       screen and (min-width: 1410px),
        screen and (width: 1536px),
        screen and (max-width: 1690px) {
     #more {
