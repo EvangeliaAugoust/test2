@@ -261,10 +261,15 @@ nav{
     align-items: center;
     z-index: 100;
     background-color: #ffffffef;
-    color: #C33948;
+    color: #3A5A40;
 }
-#me_index{
-    filter: brightness(0) saturate(100%) invert(33%) sepia(15%) saturate(2528%) hue-rotate(305deg) brightness(105%) contrast(107%);
+/* Selection styling for navigation text */
+nav ::selection {
+    color: white;
+    background: #3A5A40;
+}
+#me_index {
+    filter: brightness(0) saturate(100%) invert(36%) sepia(18%) saturate(746%) hue-rotate(71deg) brightness(92%) contrast(94%);
     margin-left: 30px;
 }
 #me_index:hover, .web a:hover{
@@ -277,12 +282,12 @@ nav{
 }
 .web a{
     padding: 2%;
-    border-bottom: #C33948 solid 2px;
+    border-bottom: #3A5A40 solid 2px;
     transition: .3s ease;
     border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 1;
 }
 .web a:hover, #active, .web:hover #active:hover{
-    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), #C33948, rgba(255, 255, 255, 0)) 1;
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0), #3A5A40, rgba(255, 255, 255, 0)) 1;
 }
 .web:hover #active{
     border-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0)) 1;
@@ -395,7 +400,7 @@ nav{
 
 /* Footer */
 footer{
-    background-color: #C33948;
+    background-color: #3A5A40;
     color: white;
     font-family: "Work Sans", "serif";
     height: fit-content;
@@ -405,6 +410,16 @@ footer{
     flex-direction: column;
     justify-content: space-between;
 }
+/* Remove selection effect in footer */
+footer ::selection {
+    color: inherit;
+    background: transparent;
+}
+/* Footer selection
+footer ::selection {
+    color: #3A5A40;
+    background: white;
+}*/
 #foot img{
     filter: brightness(0) saturate(100%) invert(100%) sepia(9%) saturate(7498%) hue-rotate(180deg) brightness(104%) contrast(116%);
 }

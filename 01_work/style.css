@@ -22,7 +22,7 @@ a, li{
 }
 ::selection {
     color: white;
-    background: #67837D;
+    background: #3A5A40;
 }
 
 /*NAVBAR*/
@@ -34,8 +34,17 @@ nav{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background-color: #67837D;
+    background-color: #3A5A40;
     color: white;
+}
+#redRectangle {
+    width: 80%;
+    height: 6vh; /* Ρύθμισε το ύψος αν χρειάζεται */
+    background: linear-gradient(to right, #9198e500 40%, #3A5A40 80%);
+    position: absolute;
+    bottom: 5vh;
+    right: 0;
+    z-index: 99;
 }
 #me_index{
     filter: brightness(0) saturate(100%) invert(100%) sepia(9%) saturate(7498%) hue-rotate(180deg) brightness(104%) contrast(116%);
@@ -78,7 +87,7 @@ nav{
     z-index: -1;
     padding-top: 200px;
     display: none;
-    background-color: #C33948;
+    background-color: #3A5A40;
 }
 .mobNav a{
     width: 30vh;
@@ -287,7 +296,7 @@ nav{
 
 /* footer */
 footer{
-    background-color: #67837D;
+    background-color: #3A5A40;
     color: white;
     font-family: "Work Sans", "serif";
     height: fit-content;
@@ -469,15 +478,7 @@ footer{
     visibility: hidden; /* Αρχικά κρύβουμε το κείμενο και το εμφανίζουμε με το JS */
 }
 
-#redRectangle {
-    width: 80%;
-    height: 6vh; /* Ρύθμισε το ύψος αν χρειάζεται */
-    background: linear-gradient(to right, #9198e500 40%, #67837D 80%);
-    position: absolute;
-    bottom: 5vh;
-    right: 0;
-    z-index: 99;
-}
+
 
 
 
