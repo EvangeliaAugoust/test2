@@ -161,7 +161,6 @@ nav{
     animation: swayBackground 3s ease-in-out infinite;
 }
 
-
 .datWho{
     text-align: center;
 }
@@ -365,34 +364,21 @@ footer{
 }
 
 
-/* responsive design */
-@media screen and (max-width: 1270px){
-    #more{
+@media screen and (max-width: 1270px),
+       screen and (width: 1536px),
+       screen and (max-width: 1690px) {
+    #more {
         text-align: center;
-        margin-top: -15px; /* Μειώνει το κενό ανεβάζοντας το κείμενο πιο κοντά στο όνομα */   
+        margin-top: -15px; /* Μειώνει το κενό ανεβάζοντας το κείμενο πιο κοντά στο όνομα */
     }
     .whoImg {
         width: 46%;
-        margin-left: auto; 
-        margin-right: auto; 
+        margin-left: auto;
+        margin-right: auto;
         display: block; /* Εξασφαλίζει ότι το margin εφαρμόζεται σωστά */
     }
-
 }
 
-/* test it tommorow */
-@media screen and (width: 1536px) {
-    #more{
-        text-align: center;
-        margin-top: -15px; /* Μειώνει το κενό ανεβάζοντας το κείμενο πιο κοντά στο όνομα */   
-    }
-    .whoImg {
-        width: 46%;
-        margin-left: auto; 
-        margin-right: auto; 
-        display: block; /* Εξασφαλίζει ότι το margin εφαρμόζεται σωστά */
-    }
-  }
 
 @media screen and (max-width:858px){
     .intro{
@@ -483,7 +469,7 @@ footer{
 }
 
 #redRectangle {
-    width: 90%;
+    width: 80%;
     height: 6vh; /* Ρύθμισε το ύψος αν χρειάζεται */
     background: linear-gradient(to right, #9198e500 40%, #67837D 80%);
     position: absolute;
