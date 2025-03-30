@@ -99,70 +99,80 @@ let whoIAmElement = document.querySelector("#whoIAm");
 let whoIAmLetter = 0;
 let whoIAmSpeed = 200;
 let isAnimating = false;
-let hasFullyAppeared = false; // Αν έχει εμφανιστεί πλήρως στην αρχή
-let hasLeftView = false; // Αν έχει φύγει από το οπτικό πεδίο του χρήστη
-
-// Αρχικά εμφανίζουμε το κείμενο και το avatar χωρίς animation
-whoIAmElement.innerHTML = "Who I Am";
+let hasFullyAppeared = false;
+let hasLeftView = false;
+let whoIAmInterval = null; // Για να ακυρώνουμε το animation αν χρειαστεί
 
 // Δημιουργούμε το στοιχείο εικόνας (avatar)
 const avatarImg = document.createElement("img");
-avatarImg.src = "../00_assets/me/avatar.png"; // Διαδρομή εικόνας
-avatarImg.style.width = "65px"; // Μέγεθος avatar
+avatarImg.src = "../00_assets/me/avatar.png";
+avatarImg.style.width = "65px";
 avatarImg.style.verticalAlign = "middle";
-avatarImg.style.marginLeft = "10px"; // Κενό μεταξύ κειμένου και εικόνας
-whoIAmElement.appendChild(avatarImg); // Προσθέτουμε την εικόνα αμέσως
+avatarImg.style.marginLeft = "10px";
+
+// Αρχικά εμφανίζουμε το κείμενο και το avatar χωρίς animation
+whoIAmElement.innerHTML = "Who I Am";
+whoIAmElement.appendChild(avatarImg);
 
 function typeWhoIAm() {
     if (isAnimating) return;
+
     isAnimating = true;
-    whoIAmElement.innerHTML = "W"; // Ξεκινάμε μόνο με το "W"
+    whoIAmElement.innerHTML = "W";
     whoIAmLetter = 0;
 
-    let interval = setInterval(() => {
-        whoIAmElement.innerHTML += whoIAmText[whoIAmLetter];
-        whoIAmLetter++;
-
-        if (whoIAmLetter >= whoIAmText.length) {
-            clearInterval(interval);
+    whoIAmInterval = setInterval(() => {
+        if (whoIAmLetter < whoIAmText.length) {
+            whoIAmElement.innerHTML += whoIAmText[whoIAmLetter];
+            whoIAmLetter++;
+        } else {
+            clearInterval(whoIAmInterval);
+            whoIAmInterval = null;
             setTimeout(() => {
-                whoIAmElement.appendChild(avatarImg); // Προσθέτουμε ξανά την εικόνα
+                whoIAmElement.appendChild(avatarImg);
                 isAnimating = false;
             }, 300);
         }
     }, whoIAmSpeed);
 }
 
-// Χρησιμοποιούμε Intersection Observer API
+// Intersection Observer
 const observer = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            if (hasLeftView) { 
-                typeWhoIAm(); // Αν έχει φύγει από την οθόνη και επιστρέψει, παίζει το animation
-                hasLeftView = false; // Μηδενίζουμε την τιμή για την επόμενη φορά
+            if (hasLeftView) {
+                typeWhoIAm();
+                hasLeftView = false;
             } else if (!hasFullyAppeared) {
-                hasFullyAppeared = true; // Σηματοδοτούμε ότι εμφανίστηκε στατικά την πρώτη φορά
+                hasFullyAppeared = true;
             }
         } else {
             if (hasFullyAppeared) {
-                hasLeftView = true; // Σηματοδοτούμε ότι έφυγε από το οπτικό πεδίο
+                hasLeftView = true;
+
+                // Reset με καθαρισμό animation και επαναφορά σε default κατάσταση
+                clearInterval(whoIAmInterval);
+                whoIAmInterval = null;
+                whoIAmLetter = 0;
+                isAnimating = false;
+
+                whoIAmElement.innerHTML = "Who I Am";
+                whoIAmElement.appendChild(avatarImg);
             }
         }
     });
-}, { threshold: 0.5 });
+}, { threshold: 0.1 });
 
 observer.observe(whoIAmElement);
 
-// Προσαρμόζουμε το μέγεθος του avatar ανάλογα με το πλάτος της οθόνης
+// Responsive avatar size
 function adjustAvatarSize() {
     if (window.innerWidth <= 1270) {
-        avatarImg.style.width = "52px"; // Μικρότερο avatar για μικρότερες οθόνες
+        avatarImg.style.width = "52px";
     } else {
-        avatarImg.style.width = "65px"; // Κανονικό μέγεθος avatar
+        avatarImg.style.width = "65px";
     }
 }
-
-// Εκτελείται όταν φορτώνει η σελίδα και όταν αλλάζει το μέγεθος της οθόνης
 window.addEventListener("load", adjustAvatarSize);
 window.addEventListener("resize", adjustAvatarSize);
 
