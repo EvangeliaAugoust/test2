@@ -9,7 +9,6 @@ body{
     overflow-x: hidden;
     font-weight: 400;
     margin: 0;
-
     height: fit-content;
     background-image: url(../00_assets/svgs/bp.png);
     background-position: center;
@@ -148,6 +147,16 @@ nav{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#introText {
+    text-align: center; /* Διατηρεί τη στοίχιση στο κέντρο */
+    width: 110%; /* Ρυθμίζουμε το πλάτος ώστε να ταιριάζει στο τελικό κείμενο */
+    margin: 10 auto; /* Κεντράρει οριζόντια το μπλοκ του κειμένου */
+    display: block; /* Επιτρέπει το margin να δουλέψει σωστά */
+    white-space: nowrap; /* Αποτρέπει το αυτόματο σπάσιμο γραμμής */
+    overflow-wrap: break-word; /* Για να σπάει σωστά αν χρειάζεται */
+    visibility: hidden; /* Αρχικά κρύβουμε το κείμενο και το εμφανίζουμε με το JS */
 }
 
 /*
@@ -389,6 +398,18 @@ footer{
     }
 }
 
+@media screen and (max-width: 1690px) {
+    #ea {
+        font-size: 3.5em; /* Μικραίνει το μέγεθος του ονόματος */
+    }
+    .firstName, .lastName {
+        font-size: inherit; /* Κρατάει τις αναλογίες */
+    }
+    #introText {
+        font-size: 0.9em; /* Μικραίνει ελαφρώς το μέγεθος του κειμένου */
+    }
+}
+
 
 @media screen and (max-width:858px){
     .intro{
@@ -468,15 +489,7 @@ footer{
 
 }
 
-#introText {
-    text-align: center; /* Διατηρεί τη στοίχιση στο κέντρο */
-    width: 110%; /* Ρυθμίζουμε το πλάτος ώστε να ταιριάζει στο τελικό κείμενο */
-    margin: 10 auto; /* Κεντράρει οριζόντια το μπλοκ του κειμένου */
-    display: block; /* Επιτρέπει το margin να δουλέψει σωστά */
-    white-space: nowrap; /* Αποτρέπει το αυτόματο σπάσιμο γραμμής */
-    overflow-wrap: break-word; /* Για να σπάει σωστά αν χρειάζεται */
-    visibility: hidden; /* Αρχικά κρύβουμε το κείμενο και το εμφανίζουμε με το JS */
-}
+
 
 
 

@@ -21,7 +21,7 @@ a, li{
 }
 ::selection {
     color: white;
-    background: #C33948;
+    background: #0951A4;
 }
 
 /*NAVBAR*/
@@ -34,7 +34,7 @@ nav{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background-color: #c33949fa;
+    background-color: #141D2C;
     color: white;
 }
 #me_index{
