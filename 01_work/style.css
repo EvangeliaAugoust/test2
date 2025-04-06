@@ -478,12 +478,22 @@ footer{
         display: none;
     }
     #introText {
-        font-size: 1.2em; /* Λίγο μεγαλύτερη γραμματοσειρά για ευκολότερη ανάγνωση */
-        white-space: normal; /* Επιτρέπει το σπάσιμο γραμμής */
-        width: 100%; /* Κάνει το πλάτος να χωράει σωστά μέσα στο κινητό */
-        margin: 0 auto; /* Κεντράρει οριζόντια */
-        line-height: 1.6em; /* Κάνει πιο ευάερη την ανάγνωση */
-        padding: 0 10px; /* Λίγο "ανάσα" αριστερά/δεξιά για να μην ακουμπάει τις άκρες */
+        font-size: 1.2em;
+        white-space: normal;
+        width: 100%;
+        margin: 0 auto;
+        line-height: 1.8em;
+        padding: 0 10px;
+    }
+
+    .firstName {
+        display: block;
+        margin-bottom: 10px; /* Κενό ανάμεσα σε όνομα και επίθετο */
+    }
+
+    .introLine {
+        display: block;
+        margin-bottom: 5px; /* Κενό ανάμεσα στις προτάσεις */
     }
     
 }
