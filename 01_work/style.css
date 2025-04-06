@@ -473,6 +473,10 @@ footer{
     }
     body {
         background-image: url(../00_assets/svgs/mbp.png); /* Νέο background για mobile */
+        background-attachment: scroll; /* ή απλά αφαίρεσέ το */
+        background-size: cover; /* κάνει την εικόνα να γεμίζει πλήρως */
+        background-position: center center; /* φροντίζει να κόβεται ωραία */
+        background-repeat: no-repeat;
     }
     #redRectangle {
         display: none;
