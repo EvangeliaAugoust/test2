@@ -52,7 +52,7 @@ function chat(){
 chat();
 
 // Typing animation για το "Evangelia Avgoustopoulou."
-const welcomeText = ["Evangelia.", "Avgoustopoulou."];
+const welcomeText = ["Evangelia Avgoustopoulou.", "Evangelia.", "Avgoustopoulou."];
 let welcomeElement = document.querySelector("#welcome");
 let welcomeIndex = 0, welcomeLetter = 0;
 
