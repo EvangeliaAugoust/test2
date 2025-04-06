@@ -462,9 +462,6 @@ footer{
     #meet{
         height: 30%;
     }
-    #more{
-        font-size: 1.1em;
-    }
     .follow{
         width: 30%;
     }
@@ -478,7 +475,7 @@ footer{
         display: none;
     }
     #introText {
-        font-size: 1.2em;
+        font-size: 0.95em !important;
         white-space: normal;
         width: 100%;
         margin: 0 auto;
