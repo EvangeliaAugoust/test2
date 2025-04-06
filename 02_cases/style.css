@@ -527,6 +527,45 @@ footer ::selection {
   }*/
   
 
+  @media screen and (max-width: 600px) {
+    .projectLeft, .projectRight {
+        padding: 0; /* Εξαλείφει το padding από τα πλάγια */
+        margin: 0; /* Εξαλείφει τυχόν margin που μπορεί να προκαλούν το κενό */
+        width: 100%;
+        box-sizing: border-box; /* Αποφυγή του overflow */
+    }
+
+    .projectView,
+    .projectDetails {
+        width: 100%;
+        margin: 0; /* Βεβαιώνεται ότι δεν υπάρχει περιθώριο που προκαλεί κενό */
+    }
+
+    .imageGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 εικόνες σε κάθε σειρά */
+        gap: 10px;
+        padding: 0; /* Εξαλείφει το padding στο grid */
+        margin: 0; /* Εξαλείφει το margin */
+    }
+
+    .gridImg {
+        width: 100%; /* Οι εικόνες γεμίζουν όλο το πλάτος */
+        height: auto;
+    }
+
+    .projectBrief p {
+        font-size: 1em;
+        line-height: 1.6em;
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
 /* Smaller */
 @media only screen and (max-width:858px){
     /* top */
@@ -590,45 +629,6 @@ footer ::selection {
         text-decoration: underline;
         text-decoration-color: #5f9eb0;
         text-underline-offset: 3px;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .projectLeft, .projectRight {
-        padding: 0; /* Εξαλείφει το padding από τα πλάγια */
-        margin: 0; /* Εξαλείφει τυχόν margin που μπορεί να προκαλούν το κενό */
-        width: 100%;
-        box-sizing: border-box; /* Αποφυγή του overflow */
-    }
-
-    .projectView,
-    .projectDetails {
-        width: 100%;
-        margin: 0; /* Βεβαιώνεται ότι δεν υπάρχει περιθώριο που προκαλεί κενό */
-    }
-
-    .imageGrid {
-        display: grid;
-        grid-template-columns: 1fr 1fr; /* 2 εικόνες σε κάθε σειρά */
-        gap: 10px;
-        padding: 0; /* Εξαλείφει το padding στο grid */
-        margin: 0; /* Εξαλείφει το margin */
-    }
-
-    .gridImg {
-        width: 100%; /* Οι εικόνες γεμίζουν όλο το πλάτος */
-        height: auto;
-    }
-
-    .projectBrief p {
-        font-size: 1em;
-        line-height: 1.6em;
-    }
-
-    .contact {
-        display: flex;
-        align-items: center;
-        gap: 8px;
     }
 }
 
