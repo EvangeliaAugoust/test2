@@ -626,9 +626,7 @@ footer ::selection {
 @media screen and (max-width: 600px) {
     .topContainer {
         background-image: url(../00_assets/svgs/pmb.png);
-        background-size: contain; /* Προσαρμόζει την εικόνα ώστε να μην κάνει ζουμ */
-        background-position: center; /* Κεντράρει την εικόνα */
-        background-repeat: no-repeat; /* Αποτρέπει την επανάληψη της εικόνας */
+        background-attachment: scroll; /* ή απλά αφαίρεσέ το */
     }
 
     .projectLeft {
