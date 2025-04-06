@@ -593,6 +593,42 @@ footer ::selection {
     }
 }
 
+@media screen and (max-width: 600px) {
+    .projectLeft {
+        padding: 0 15px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .projectView,
+    .projectDetails {
+        width: 100%;
+    }
+
+    .gridImg {
+        width: 100%; /* Να γεμίζει σωστά */
+        height: auto;
+    }
+
+    .imageGrid {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 εικόνες σε κάθε σειρά */
+        gap: 10px;
+    }
+
+    .projectBrief p {
+        font-size: 1em;
+        line-height: 1.6em;
+    }
+
+    .contact {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
+
 /* Για 4 εικόνες */
 .projectView {
     display: flex;

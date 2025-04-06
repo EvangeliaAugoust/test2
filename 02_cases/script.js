@@ -106,6 +106,7 @@ let whoIAmInterval = null; // Για να ακυρώνουμε το animation α
 // Δημιουργούμε το στοιχείο εικόνας (avatar)
 const avatarImg = document.createElement("img");
 avatarImg.src = "../00_assets/me/avatar.png";
+avatarImg.id = "avatarImg";
 avatarImg.style.width = "65px";
 avatarImg.style.verticalAlign = "middle";
 avatarImg.style.marginLeft = "10px";
