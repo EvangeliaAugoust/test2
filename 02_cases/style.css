@@ -529,7 +529,9 @@ footer ::selection {
 
 /* tablet */
 @media only screen and (max-width:858px){
-    /* top */
+    .topContainer {
+        background-image: url(../00_assets/svgs/pt.png);
+    }
     .topContainer{
         flex-direction: column-reverse;
         background-position: center;
@@ -622,6 +624,10 @@ footer ::selection {
 }
 
 @media screen and (max-width: 600px) {
+    .topContainer {
+        background-image: url(../00_assets/svgs/pmb.png);
+    }
+
     .projectLeft {
         padding: 0 15px;
         box-sizing: border-box;

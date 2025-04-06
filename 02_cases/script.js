@@ -167,19 +167,21 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(whoIAmElement);
 
 // Responsive avatar size
-/*function adjustAvatarSize() {
+/* Πριν τις ρυθμίσεις tablet and mobile I had this
+function adjustAvatarSize() {
     if (window.innerWidth <= 1270) {
         avatarImg.style.width = "52px";
     } else {
         avatarImg.style.width = "65px";
     }
-}*/
+}
+και χωρίς το avatarImg.id = "avatarImg"; στο const avatarImg = document.createElement("img");
+*/
 function adjustAvatarSize() {
     const avatarImg = document.getElementById("avatarImg"); // βεβαιώσου ότι έχεις αυτό το ID στο HTML
 
     if (window.innerWidth <= 600) {
-        avatarImg.style.display = "inline-block"; // Το avatar εμφανίζεται
-        avatarImg.style.width = "25px"; // Πολύ μικρό μέγεθος για μικρότερες οθόνες
+        avatarImg.style.display = "none"; // Κρύβει το avatar εντελώς σε mobile
     } else if (window.innerWidth <= 860) {
         avatarImg.style.display = "inline-block"; // Το avatar εμφανίζεται
         avatarImg.style.width = "32px"; // Ελαφρώς μεγαλύτερο για οθόνες 860px
