@@ -178,10 +178,14 @@ function adjustAvatarSize() {
     const avatarImg = document.getElementById("avatarImg"); // βεβαιώσου ότι έχεις αυτό το ID στο HTML
 
     if (window.innerWidth <= 600) {
-        avatarImg.style.display = "none"; // Κρύβει το avatar εντελώς σε mobile
+        avatarImg.style.display = "inline-block"; // Το avatar εμφανίζεται
+        avatarImg.style.width = "25px"; // Πολύ μικρό μέγεθος για μικρότερες οθόνες
+    } else if (window.innerWidth <= 860) {
+        avatarImg.style.display = "inline-block"; // Το avatar εμφανίζεται
+        avatarImg.style.width = "32px"; // Ελαφρώς μεγαλύτερο για οθόνες 860px
     } else {
-        avatarImg.style.display = "inline-block"; // Το εμφανίζει σε μεγαλύτερες οθόνες
-        avatarImg.style.width = window.innerWidth <= 1270 ? "52px" : "65px";
+        avatarImg.style.display = "inline-block"; // Το avatar εμφανίζεται
+        avatarImg.style.width = window.innerWidth <= 1270 ? "52px" : "65px"; // Κανονικό μέγεθος για μεγαλύτερες οθόνες
     }
 }
 window.addEventListener("load", adjustAvatarSize);
