@@ -627,6 +627,13 @@ footer ::selection {
         align-items: center;
         gap: 8px;
     }
+
+    .projectDetails,
+    .projectView,
+    .projectLeft {
+        margin-left: 0 !important;
+        padding-left: 0 !important;
+    }
 }
 
 /* Για 4 εικόνες */
