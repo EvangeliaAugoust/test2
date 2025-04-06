@@ -52,7 +52,7 @@ function chat(){
 chat();
 
 // Typing animation για το "Evangelia Avgoustopoulou."
-const welcomeText = ["Evangelia Avgoustopoulou.", "Evangelia.", "Avgoustopoulou."];
+const welcomeText = ["Evangelia.", "Avgoustopoulou."];
 let welcomeElement = document.querySelector("#welcome");
 let welcomeIndex = 0, welcomeLetter = 0;
 
@@ -166,11 +166,21 @@ const observer = new IntersectionObserver(entries => {
 observer.observe(whoIAmElement);
 
 // Responsive avatar size
-function adjustAvatarSize() {
+/*function adjustAvatarSize() {
     if (window.innerWidth <= 1270) {
         avatarImg.style.width = "52px";
     } else {
         avatarImg.style.width = "65px";
+    }
+}*/
+function adjustAvatarSize() {
+    const avatarImg = document.getElementById("avatarImg"); // βεβαιώσου ότι έχεις αυτό το ID στο HTML
+
+    if (window.innerWidth <= 600) {
+        avatarImg.style.display = "none"; // Κρύβει το avatar εντελώς σε mobile
+    } else {
+        avatarImg.style.display = "block"; // Το εμφανίζει σε μεγαλύτερες οθόνες
+        avatarImg.style.width = window.innerWidth <= 1270 ? "52px" : "65px";
     }
 }
 window.addEventListener("load", adjustAvatarSize);
