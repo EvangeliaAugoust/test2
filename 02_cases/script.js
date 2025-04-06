@@ -180,7 +180,7 @@ function adjustAvatarSize() {
     if (window.innerWidth <= 600) {
         avatarImg.style.display = "none"; // Κρύβει το avatar εντελώς σε mobile
     } else {
-        avatarImg.style.display = "block"; // Το εμφανίζει σε μεγαλύτερες οθόνες
+        avatarImg.style.display = "inline-block"; // Το εμφανίζει σε μεγαλύτερες οθόνες
         avatarImg.style.width = window.innerWidth <= 1270 ? "52px" : "65px";
     }
 }
