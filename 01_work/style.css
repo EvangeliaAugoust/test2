@@ -478,22 +478,29 @@ footer{
         display: none;
     }
     #introText {
-        font-size: 1.2em;
+        font-size: 0.85em;
         white-space: normal;
         width: 100%;
         margin: 0 auto;
         line-height: 1.8em;
         padding: 0 10px;
     }
+    #more {
+        font-size: 1em;
+        margin-top: 20px; /* Προσθέτει κενό ανάμεσα στο επίθετο και το animation */
+    }
 
     .firstName {
         display: block;
-        margin-bottom: 10px; /* Κενό ανάμεσα σε όνομα και επίθετο */
+        margin-bottom: 10px;
     }
 
+    .lastName {
+        display: block;
+    }
     .introLine {
         display: block;
-        margin-bottom: 5px; /* Κενό ανάμεσα στις προτάσεις */
+        margin-bottom: 3px; /* Κενό ανάμεσα στις προτάσεις */
     }
     
 }

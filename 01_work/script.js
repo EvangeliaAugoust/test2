@@ -96,10 +96,10 @@ const introTextParts = [
 
 const mobileIntroParts = [
     "I’m an aspiring UX/UI Designer",
-    "with a background in Computer Science,",
-    "passionate about creating designs",
-    "that are intuitive, user-friendly",
-    "and accessible ✨"
+    "with a background in Computer",
+    "Science, passionate about",
+    "creating designs that are intuitive,",
+    "user-friendly and accessible ✨"
 ];
 
 let introElement = document.querySelector("#introText");
