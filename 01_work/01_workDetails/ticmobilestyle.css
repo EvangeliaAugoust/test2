@@ -259,6 +259,7 @@ ul {
     user-select: none;
     pointer-events: all;
     cursor: grab;
+    touch-action: none; /* για desktop gestures */
 }
 
 #zoom:active {
@@ -550,6 +551,10 @@ footer{
         width: 100%;  /* Προσαρμόζεται στο πλάτος της οθόνης */
         max-width: 100%;
         height: auto;
+    }
+
+    #zoom {
+        touch-action: auto; /* επιτρέπεται pinch */
     }
 }
 

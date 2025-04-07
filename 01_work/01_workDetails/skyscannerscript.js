@@ -256,3 +256,74 @@ zoomImg.addEventListener("click", (e) => {
     // Reset σε κάθε περίπτωση για το επόμενο κλικ
     hasDragged = false;
 });
+
+const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+if (!isMobile) {
+    // Ζουμ με το scroll (wheel)
+    zoomImg.addEventListener("wheel", function (e) {
+        e.preventDefault();
+
+        const delta = e.deltaY;
+        scale += delta > 0 ? -0.1 : 0.1;
+
+        scale = Math.min(Math.max(1, scale), 3);
+        zoomImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+    });
+
+    // Drag μεταβλητές
+    let isDragging = false;
+    let hasDragged = false;
+    let startX, startY;
+
+    zoomImg.addEventListener("mousedown", (e) => {
+        const naturalHeight = zoomImg.naturalHeight;
+        const containerHeight = window.innerHeight;
+        const isTaller = naturalHeight > containerHeight;
+
+        if (scale === 1 && !isTaller) return;
+
+        isDragging = true;
+        hasDragged = false;
+        startX = e.clientX - currentX;
+        startY = e.clientY - currentY;
+        zoomImg.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
+
+        const moveX = e.clientX - startX;
+        const moveY = e.clientY - startY;
+
+        if (Math.abs(moveX - currentX) > 5 || Math.abs(moveY - currentY) > 5) {
+            hasDragged = true;
+        }
+
+        currentX = moveX;
+        currentY = moveY;
+        zoomImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+    });
+
+    document.addEventListener("mouseup", () => {
+        isDragging = false;
+        zoomImg.style.cursor = "grab";
+    });
+
+    zoomImg.addEventListener("click", (e) => {
+        const naturalHeight = zoomImg.naturalHeight;
+        const containerHeight = window.innerHeight;
+        const isTaller = naturalHeight > containerHeight;
+
+        if (!hasDragged && (scale === 1 || !isTaller)) {
+            $('body').css('overflowY', 'auto');
+            $(".viewing").css("display", "none");
+            zoomImg.style.transform = "translate(0px, 0px) scale(1)";
+            scale = 1;
+            currentX = 0;
+            currentY = 0;
+        }
+
+        hasDragged = false;
+    });
+}
