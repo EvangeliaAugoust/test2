@@ -41,7 +41,6 @@ const processImg = $(".show").map(function () {
     return $(this).attr("src") || $(this).attr("data-src");
 }).get();
 
-
 $('.show').click(function () {
     $('body').css('overflowY', 'hidden');
     $(".viewing").css("display", "flex");
@@ -103,9 +102,73 @@ $('.show').click(function () {
     zoomImg.attr("src", imgSrc);
 });
 
-$(".viewing").click(() => {
-    $('body').css('overflowY', 'auto');
-    $(".viewing").css("display", "none");
+// Κλείσιμο της εικόνας αν ο χρήστης κάνει κλικ έξω από αυτήν ή στην περιοχή .viewing
+$(".viewing").click((e) => {
+    // Κλείσιμο μόνο αν ο χρήστης κάνει κλικ έξω από την εικόνα
+    if (e.target === e.currentTarget) {
+        $('body').css('overflowY', 'auto');
+        $(".viewing").css("display", "none");
+
+        // Reset zoom
+        zoomImg.style.transform = "translate(0px, 0px) scale(1)";
+        scale = 1;
+        currentX = 0;
+        currentY = 0;    
+    }
+});
+
+// Ζουμ με το scroll (wheel)
+let scale = 1;
+const zoomImg = document.getElementById("zoom");
+
+zoomImg.addEventListener("wheel", function (e) {
+    e.preventDefault();
+
+    const delta = e.deltaY;
+    scale += delta > 0 ? -0.1 : 0.1;
+
+    // Περιορισμοί
+    scale = Math.min(Math.max(1, scale), 3);
+    zoomImg.style.transform = `scale(${scale})`;
+});
+
+// Αρχή drag
+let isDragging = false;
+let startX, startY;
+let currentX = 0, currentY = 0;
+
+zoomImg.addEventListener("mousedown", (e) => {
+    if (scale === 1) return; // Δεν χρειάζεται drag χωρίς zoom
+    isDragging = true;
+    startX = e.clientX - currentX;
+    startY = e.clientY - currentY;
+    zoomImg.style.cursor = "grabbing";
+});
+
+document.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+    currentX = e.clientX - startX;
+    currentY = e.clientY - startY;
+    zoomImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
+});
+
+document.addEventListener("mouseup", () => {
+    isDragging = false;
+    zoomImg.style.cursor = "grab";
+});
+
+// Κλείσιμο με κλικ στην εικόνα μόνο αν είναι στο αρχικό μέγεθος (scale == 1)
+zoomImg.addEventListener("click", (e) => {
+    if (scale === 1) { // Κλείσιμο μόνο αν η εικόνα είναι στο αρχικό της μέγεθος
+        $('body').css('overflowY', 'auto');
+        $(".viewing").css("display", "none");
+
+        // Reset zoom
+        zoomImg.style.transform = "translate(0px, 0px) scale(1)";
+        scale = 1;
+        currentX = 0;
+        currentY = 0;    
+    }
 });
 
 
