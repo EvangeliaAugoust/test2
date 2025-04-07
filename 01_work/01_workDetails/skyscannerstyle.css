@@ -597,6 +597,7 @@ a[href="#current-app-issues"] {
         display: none; /* Κρύβει το viewing αρχικά */
         justify-content: center;
         align-items: center; /* Κεντράρισμα στη μέση */
+        touch-action: none; /* Απαγορεύει οποιοδήποτε touch action για την περιοχή .viewing */
     }
 
     #zoom {
@@ -605,7 +606,8 @@ a[href="#current-app-issues"] {
         display: block;
         max-width: 100vw;
         max-height: 100vh;
-        touch-action: auto; /* επιτρέπεται pinch */
+        touch-action: none; /* Επιτρέπει το zoom στην εικόνα χωρίς να επηρεάζει τη σελίδα */
+        transform-origin: center; /* Κεντράρει την εικόνα κατά το zoom */
     }
 }
 
