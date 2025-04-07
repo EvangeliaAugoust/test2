@@ -107,7 +107,6 @@ $(".show").click(function () {
     // Προεπιλεγμένες τιμές
     let maxWidth = "85vw", maxHeight = "85vh", borderRadius = "0px";
 
-    // Προσαρμογές ανά κλάση
     if ($(this).hasClass("cv") || $(this).hasClass("paper")) {
         maxWidth = "100vw";
         maxHeight = "100vh";
@@ -131,7 +130,6 @@ $(".show").click(function () {
         maxHeight = "100vh";
     }
 
-    // Εφαρμογή CSS
     $(zoomImg).css({
         width: "auto",
         height: "auto",
@@ -141,6 +139,12 @@ $(".show").click(function () {
     });
 
     zoomImg.src = imgSrc;
+
+    // 👉 Μπλοκάρουμε προσωρινά pinch-zoom στο κινητό
+    if (isMobile) {
+        document.documentElement.style.overflow = 'hidden';
+        document.body.style.touchAction = 'none';
+    }
 });
 
 // Κλείσιμο με click έξω από την εικόνα
@@ -154,17 +158,10 @@ $(".viewing").click((e) => {
         currentX = 0;
         currentY = 0;
 
-        // 👉 Εδώ είναι το κόλπο μας για reset zoom στο κινητό
+        // 👉 Επαναφορά zoom και touch ελέγχου σε κινητό
         if (isMobile) {
-            setTimeout(() => {
-                window.scrollTo(0, 0);
-                document.body.style.transform = "scale(1)";
-                document.body.style.transformOrigin = "0 0";
-                setTimeout(() => {
-                    document.body.style.transform = "";
-                    document.body.style.transformOrigin = "";
-                }, 50);
-            }, 100);
+            document.documentElement.style.overflow = '';
+            document.body.style.touchAction = '';
         }
     }
 });
@@ -182,12 +179,18 @@ zoomImg.addEventListener("click", (e) => {
         scale = 1;
         currentX = 0;
         currentY = 0;
+
+        // 👉 Επαναφορά zoom και touch ελέγχου σε κινητό
+        if (isMobile) {
+            document.documentElement.style.overflow = '';
+            document.body.style.touchAction = '';
+        }
     }
 
     hasDragged = false;
 });
 
-// Μόνο για desktop: zoom + drag
+// Zoom και drag μόνο σε desktop
 if (!isMobile) {
     zoomImg.addEventListener("wheel", function (e) {
         e.preventDefault();
