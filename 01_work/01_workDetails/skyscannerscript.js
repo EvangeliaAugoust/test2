@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", function () {
     lazyImages.forEach(img => observer.observe(img));
 });
 
-//Ζουμ Εικόνας
+// Ζουμ Εικόνας με drag/zoom λειτουργία για desktop
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 let scale = 1;
@@ -98,17 +98,16 @@ let currentX = 0, currentY = 0;
 
 const zoomImg = document.getElementById("zoom");
 
-// Κλικ σε εικόνα για zoom
+// 👉 Κλικ σε εικόνα για εμφάνιση σε zoom
 $(".show").click(function () {
     $('body').css('overflowY', 'hidden');
     $(".viewing").css("display", "flex");
 
     const imgSrc = $(this).attr("src") || $(this).attr("data-src");
 
-    // Προεπιλεγμένες τιμές
+    // 📐 Ρυθμίσεις διάστασης εικόνας βάσει class
     let maxWidth = "85vw", maxHeight = "85vh", borderRadius = "0px";
 
-    // Προσαρμογές ανά κλάση
     if ($(this).hasClass("cv") || $(this).hasClass("paper")) {
         maxWidth = "100vw";
         maxHeight = "100vh";
@@ -132,7 +131,7 @@ $(".show").click(function () {
         maxHeight = "100vh";
     }
 
-    // Εφαρμογή CSS
+    // 💅 Εφαρμογή στυλ και εμφάνιση εικόνας
     $(zoomImg).css({
         width: "auto",
         height: "auto",
@@ -144,7 +143,7 @@ $(".show").click(function () {
     zoomImg.src = imgSrc;
 });
 
-// Κλείσιμο με click έξω από την εικόνα
+// ✖️ Κλείσιμο εικόνας με κλικ έξω από αυτή
 $(".viewing").click((e) => {
     if (e.target === e.currentTarget) {
         $('body').css('overflowY', 'auto');
@@ -156,7 +155,7 @@ $(".viewing").click((e) => {
     }
 });
 
-// Κλικ πάνω στην εικόνα: μόνο αν δεν έγινε drag
+// ✅ Κλείσιμο με κλικ πάνω στην εικόνα (αν δεν έχει γίνει drag)
 zoomImg.addEventListener("click", (e) => {
     const naturalHeight = zoomImg.naturalHeight;
     const containerHeight = window.innerHeight;
@@ -174,7 +173,7 @@ zoomImg.addEventListener("click", (e) => {
     hasDragged = false;
 });
 
-// Μόνο για desktop: zoom + drag
+// 🖱️ Zoom & drag μόνο σε desktop συσκευές
 if (!isMobile) {
     zoomImg.addEventListener("wheel", function (e) {
         e.preventDefault();
@@ -184,6 +183,7 @@ if (!isMobile) {
         zoomImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
     });
 
+    // 🔃 Έναρξη drag
     zoomImg.addEventListener("mousedown", (e) => {
         const naturalHeight = zoomImg.naturalHeight;
         const containerHeight = window.innerHeight;
@@ -198,6 +198,7 @@ if (!isMobile) {
         zoomImg.style.cursor = "grabbing";
     });
 
+    // ➡️ Κατά τη διάρκεια drag
     document.addEventListener("mousemove", (e) => {
         if (!isDragging) return;
 
@@ -213,6 +214,7 @@ if (!isMobile) {
         zoomImg.style.transform = `translate(${currentX}px, ${currentY}px) scale(${scale})`;
     });
 
+    // 🛑 Τέλος drag
     document.addEventListener("mouseup", () => {
         isDragging = false;
         zoomImg.style.cursor = "grab";
