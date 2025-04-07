@@ -72,7 +72,7 @@ labels.forEach(label => {
 
 // ΖΟΥΜ ΚΑΘΕ ΕΙΚΟΝΑΣ
 const processImg = $(".show").map(function () {
-    return $(this).attr("src") || $(this).attr("data-src"); // Παίρνει το src αν υπάρχει, αλλιώς το data-src
+    return $(this).attr("src") || $(this).attr("data-src");
 }).get();
 
 $('.show').click(function () {
@@ -80,45 +80,47 @@ $('.show').click(function () {
     $(".viewing").css("display", "flex");
 
     let imgIndex = $(".show").index(this);
-    let imgSrc = $(this).attr("src") || $(this).attr("data-src"); // Παίρνει το σωστό URL της εικόνας
+    let imgSrc = $(this).attr("src") || $(this).attr("data-src");
     let zoomImg = $("#zoom");
 
     // Προεπιλεγμένες τιμές
     let width = "auto";
     let height = "auto";
-    let maxWidth = "85vw";
-    let maxHeight = "85vh";
+    let maxWidth = "100vw";
+    let maxHeight = "100vh";
     let borderRadius = "0px";
 
-    // ΝΕΟ: Έλεγχος για την κλάση "zoomable"
-    if ($(this).hasClass("zoomable")) {
+    // Έλεγχος με βάση τις κλάσεις της εικόνας
+    if ($(this).hasClass("subshow")) {
+        maxWidth = "80vw";
+    }
+    if ($(this).hasClass("storyboard-img")) {
+        maxWidth = "70vw";
+    }
+    if ($(this).hasClass("lofi-img")) {
+        maxHeight = "100vh";
+    }
+    if ($(this).hasClass("lofi-gif") || $(this).hasClass("hifi-gif")) {
+        maxWidth = "100vw";
+        maxHeight = "100vh";
+        borderRadius = "25px";
+    }
+    if ($(this).hasClass("hifi-gif")) {
+        borderRadius = "25px";
         maxWidth = "100vw";
         maxHeight = "100vh";
     }
 
-    if ($(this).hasClass("paper")) {
-        maxWidth = "100vw";
+    if (imgSrc.includes("hifiprototype1") || imgSrc.includes("hifiprototype2")) {
         maxHeight = "100vh";
+        maxWidth = "auto";
     }
 
-    if ($(this).hasClass("digital")) {
-        maxWidth = "102vw";
-        maxHeight = "128vh";
-    }
-
-    if ($(this).hasClass("hd")) {
-        maxWidth = "100vw";
-        maxHeight = "100vh";
-    }
-
-    if ($(this).hasClass("hp")) {
-        maxWidth = "100vw";
-        maxHeight = "100vh";
-    }
-
-    if ($(this).hasClass("gif")) {
-        maxWidth = "100vw";
-        maxHeight = "100vh";
+    // **ΝΕΟ: Αν η οθόνη είναι μικρότερη από 768px (κινητό), αύξησε το zoom στα subshow & storyboard-img**
+    if (window.innerWidth <= 768) {
+        if ($(this).hasClass("subshow") || $(this).hasClass("storyboard-img")) {
+            maxWidth = "100vw"; // Κάνει το zoom μεγαλύτερο στο κινητό
+        }
     }
 
     // Εφαρμογή των ρυθμίσεων
