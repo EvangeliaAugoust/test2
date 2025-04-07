@@ -597,7 +597,6 @@ a[href="#current-app-issues"] {
         display: none; /* Κρύβει το viewing αρχικά */
         justify-content: center;
         align-items: center; /* Κεντράρισμα στη μέση */
-        touch-action: none; /* Απαγορεύει οποιοδήποτε touch action για την περιοχή .viewing */
     }
 
     #zoom {
