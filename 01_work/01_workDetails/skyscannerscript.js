@@ -257,6 +257,7 @@ zoomImg.addEventListener("click", (e) => {
     hasDragged = false;
 });
 
+/*
 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
 if (!isMobile) {
@@ -326,4 +327,4 @@ if (!isMobile) {
 
         hasDragged = false;
     });
-}
+}*/
