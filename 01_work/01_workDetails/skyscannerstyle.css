@@ -263,7 +263,6 @@ ul {
     pointer-events: all;
     cursor: grab;
     align-self: flex-start; /* αλλάζει σε flex-start όταν χρειαστεί */
-    touch-action: none; /* για desktop gestures */
 }
 
 #zoom:active {
