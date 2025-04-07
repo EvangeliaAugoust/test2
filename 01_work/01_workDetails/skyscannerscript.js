@@ -148,10 +148,24 @@ $(".viewing").click((e) => {
     if (e.target === e.currentTarget) {
         $('body').css('overflowY', 'auto');
         $(".viewing").css("display", "none");
+
         zoomImg.style.transform = "translate(0px, 0px) scale(1)";
         scale = 1;
         currentX = 0;
         currentY = 0;
+
+        // 👉 Εδώ είναι το κόλπο μας για reset zoom στο κινητό
+        if (isMobile) {
+            setTimeout(() => {
+                window.scrollTo(0, 0);
+                document.body.style.transform = "scale(1)";
+                document.body.style.transformOrigin = "0 0";
+                setTimeout(() => {
+                    document.body.style.transform = "";
+                    document.body.style.transformOrigin = "";
+                }, 50);
+            }, 100);
+        }
     }
 });
 
