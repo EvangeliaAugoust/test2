@@ -605,7 +605,7 @@ a[href="#current-app-issues"] {
         display: block;
         max-width: 100vw;
         max-height: 100vh;
-        transform-origin: center; /* Κεντράρει την εικόνα κατά το zoom */
+        touch-action: auto; /* επιτρέπεται pinch */
     }
 }
 
